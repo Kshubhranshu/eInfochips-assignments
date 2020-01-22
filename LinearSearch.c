@@ -3,16 +3,16 @@
 
 void main()
 {
-    int* ptrBaseAddressOfArray;   /*stores the base address of the array allocated dynamically*/
+    int *pBaseAddressOfArray;   /*stores the base address of the array allocated dynamically*/
     int iIndex;
     int iMaxSizeOfArray;
     int iValueToSearch;
 
     printf("Enter the max size of array :   ");
     scanf("%d", &iMaxSizeOfArray);
-    ptrBaseAddressOfArray = (int*) malloc(iMaxSizeOfArray * sizeof(int));
+    pBaseAddressOfArray = (int*) malloc(iMaxSizeOfArray * sizeof(int));
     
-    if (ptrBaseAddressOfArray == NULL)
+    if (pBaseAddressOfArray == NULL)
     {
         printf("Memory not allocated. \n");
         exit(0);
@@ -21,14 +21,14 @@ void main()
     {
         for (iIndex = 0; iIndex < iMaxSizeOfArray; iIndex++)
         {
-            ptrBaseAddressOfArray[iIndex] = rand() % 100;
+            pBaseAddressOfArray[iIndex] = rand() % 100;
             //
         }   
     }
 
     for(iIndex = 0; iIndex < iMaxSizeOfArray; iIndex++)
     {
-        printf("[%d]", ptrBaseAddressOfArray[iIndex]);
+        printf("[%d]", pBaseAddressOfArray[iIndex]);
         //
     }
     
@@ -36,7 +36,7 @@ void main()
     scanf("%d", &iValueToSearch);
     for(iIndex = 0; iIndex < iMaxSizeOfArray; iIndex++)
     {
-        if (iValueToSearch == ptrBaseAddressOfArray[iIndex])
+        if (iValueToSearch == pBaseAddressOfArray[iIndex])
         {
             printf("Element found at %d index\n", iIndex);
             exit(0);

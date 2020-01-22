@@ -1,21 +1,21 @@
 #include<stdio.h>
-#define N 3
-void getMatrixMultiplication(int iaMatrixA[][N], int iaMatrixB[][N], int iaResultantMatrix[][N], int iNoOfColumns, int iNoOfRows);
-void getResultantMatrix(int iaResultantMatrix[][N], int iNoOfColumns, int iNoOfRows);
+#define N 3  //number of columns
+void getMatrixMultiplication(int aiMatrixA[][N], int aiMatrixB[][N], int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfRows);
+void getResultantMatrix(int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfRows);
 
 void main()
 {
-    int iaMatrixA[N][N] = {{1,2,3}, {4,5,6}, {7,8,9}};
-    int iaMatrixB[N][N] = {{1,2,3}, {4,5,6}, {7,8,9}};
-    int iaResultantMatrix[N][N];
+    int aiMatrixA[N][N] = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int aiMatrixB[N][N] = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int aiResultantMatrix[N][N];
     int iNoOfRows = N;
     int iNoOfColumns = N;
-    getMatrixMultiplication(iaMatrixA, iaMatrixB,iaResultantMatrix, iNoOfColumns, iNoOfRows);
-    getResultantMatrix(iaResultantMatrix, iNoOfColumns, iNoOfRows);
+    getMatrixMultiplication(aiMatrixA, aiMatrixB,aiResultantMatrix, iNoOfColumns, iNoOfRows);
+    getResultantMatrix(aiResultantMatrix, iNoOfColumns, iNoOfRows);
 
 }
 
-void getMatrixMultiplication(int iaMatrixA[][N], int iaMatrixB[][N], int iaResultantMatrix[][N], int iNoOfColumns, int iNoOfRows)
+void getMatrixMultiplication(int aiMatrixA[][N], int aiMatrixB[][N], int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfRows)
 {
     int iColumnIndex;
     int iRowIndex;
@@ -25,17 +25,17 @@ void getMatrixMultiplication(int iaMatrixA[][N], int iaMatrixB[][N], int iaResul
     {
         for(iColumnIndex = 0; iColumnIndex < iNoOfColumns; iColumnIndex++)
         {
-            iaResultantMatrix[iRowIndex][iColumnIndex] = 0;
+            aiResultantMatrix[iRowIndex][iColumnIndex] = 0;
             for(iIndex = 0; iIndex <  iNoOfRows; iIndex++)
             {
-                iaResultantMatrix[iRowIndex][iColumnIndex] += iaMatrixA[iRowIndex][iIndex] * iaMatrixB[iIndex][iColumnIndex]; 
+                aiResultantMatrix[iRowIndex][iColumnIndex] += aiMatrixA[iRowIndex][iIndex] * aiMatrixB[iIndex][iColumnIndex]; 
             }   
         }
     }
     
 }
 
-void getResultantMatrix(int iaResultantMatrix[][N], int iNoOfColumns, int iNoOfRows)
+void getResultantMatrix(int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfRows)
 {
     int iRowIndex;
     int iColIndex;
@@ -44,7 +44,7 @@ void getResultantMatrix(int iaResultantMatrix[][N], int iNoOfColumns, int iNoOfR
     {
         for(iColIndex = 0; iColIndex < iNoOfColumns; iColIndex++)
         {
-            printf("%d    ", iaResultantMatrix[iRowIndex][iColIndex]);
+            printf("%d    ", aiResultantMatrix[iRowIndex][iColIndex]);
         }
         printf("\n");
     }

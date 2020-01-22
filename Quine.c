@@ -8,11 +8,11 @@ void main()
     * printf(s,34,s,34);
     */
    
-    FILE *FilePointer;
+    FILE *pFilePointer;
     char chCharchter;
 
-    FilePointer = fopen(__FILE__, "r");
-    if(FilePointer == NULL)
+    pFilePointer = fopen(__FILE__, "r");
+    if(pFilePointer == NULL)
     {
         printf("File not opened successfully\n");
     }
@@ -20,9 +20,9 @@ void main()
     {
         do
         {
-        chCharchter = fgetc(FilePointer);
+        chCharchter = fgetc(pFilePointer);
         putchar(chCharchter);
         } while (chCharchter != EOF);
     }
-    fclose(FilePointer);
+    fclose(pFilePointer);
 }  

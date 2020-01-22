@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int largestElementIndex(int iaArray[], int iSizeOfArray); 
+int largestElementIndex(int aiArray[], int iSizeOfArray); 
 
 
 void main()
 {
-    FILE *FilePointer;
+    FILE *pFilePointer;
     int iCharactersCountBuffer[10] = {0};
     char chCopyCharacter;
     char chCharacters;
@@ -16,15 +16,15 @@ void main()
     int iCharactersCountSum = 0;
     int iIndexForCharacterCountSum;
 
-    FilePointer = fopen("file1.txt", "r");
+    pFilePointer = fopen("file1.txt", "r");
 
-    if(FilePointer == NULL)
+    if(pFilePointer == NULL)
     {
         printf("File doesnot exists!\n");
         exit(0);
     }
 
-    while((chCharacters = fgetc(FilePointer)) != EOF)
+    while((chCharacters = fgetc(pFilePointer)) != EOF)
     {   
         iCharactersCountBuffer[iIndex]++;
         if(chCharacters == '\n')
@@ -44,8 +44,8 @@ void main()
 
     printf("Longest line is line no. %d and its count is %d\n", iCursorPosition, iCharactersCountBuffer[iCursorPosition]);
     
-    fseek(FilePointer, iCharactersCountSum, SEEK_SET);
-    while((chCopyCharacter = fgetc(FilePointer)) != EOF)
+    fseek(pFilePointer, iCharactersCountSum, SEEK_SET);
+    while((chCopyCharacter = fgetc(pFilePointer)) != EOF)
     {   
         if(chCopyCharacter == '\n')
         {
@@ -54,24 +54,18 @@ void main()
         printf("%c", chCopyCharacter);
     }
     printf("\n");
-
-
-
-
-
-
 }
 
-int largestElementIndex(int iaArray[], int iSizeOfArray) 
+int largestElementIndex(int aiArray[], int iSizeOfArray) 
 { 
     int iIndex; 
     int iIndexOfLargestElement = 0;
-    int iMax = iaArray[0];
+    int iMax = aiArray[0];
     for (iIndex = 1; iIndex < iSizeOfArray; iIndex++)
     {
-        if (iaArray[iIndex] > iMax)
+        if (aiArray[iIndex] > iMax)
         {
-            iMax = iaArray[iIndex];
+            iMax = aiArray[iIndex];
             iIndexOfLargestElement = iIndex;
         }
     }

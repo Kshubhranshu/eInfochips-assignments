@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int iaBuffer[100];
+int aiBuffer[100];
 int iNextIndex;
 int iCapacity;
 
@@ -32,7 +32,7 @@ void push(int iElement)
         printf("Stack Full\n");
         return;
     }
-    iaBuffer[iNextIndex] = iElement;
+    aiBuffer[iNextIndex] = iElement;
     iNextIndex++;
 }
 
@@ -45,7 +45,7 @@ int pop()
         return -1;
     }
     iNextIndex--;
-    return iaBuffer[iNextIndex];
+    return aiBuffer[iNextIndex];
 }
 
 /*returns the top of stack*/
@@ -57,7 +57,7 @@ int getTopOfStack()
         return -1;
     }
 
-    return iaBuffer[iNextIndex - 1];
+    return aiBuffer[iNextIndex - 1];
 }
 
 

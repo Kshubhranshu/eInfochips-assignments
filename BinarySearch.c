@@ -1,28 +1,28 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int binarySearch(int iaArray[], int iSizeOfArray, int iValueToSearch);
-void sortArray(int iaArray[], int iSizeOfArray);
+int binarySearch(int aiArray[], int iSizeOfArray, int iValueToSearch);
+void sortArray(int aiArray[], int iSizeOfArray);
 
 void main()
 {
-    int iaArray[100] = {8,6,5,4,3,2,1,3,4};
+    int aiArray[100] = {8,6,5,4,3,2,1,3,4};
     int iSizeOfArray;
     int iValueToSearch; 
     int iBinarySearchResult;
 
     printf("Enter the size of array     : ");
     scanf("%d", &iSizeOfArray);
-    sortArray(iaArray, iSizeOfArray);
+    sortArray(aiArray, iSizeOfArray);
     for (int i = 0; i < iSizeOfArray; i++)
     {
-        printf("%d  ", iaArray[i]);
+        printf("%d  ", aiArray[i]);
     }
     
 
     printf("Enter the value to search   : ");
     scanf("%d", &iValueToSearch);
-    iBinarySearchResult = binarySearch(iaArray, iSizeOfArray, iValueToSearch);
+    iBinarySearchResult = binarySearch(aiArray, iSizeOfArray, iValueToSearch);
 
     if (iBinarySearchResult == -1)
     {
@@ -34,7 +34,7 @@ void main()
     }
 }
 
-int binarySearch(int iaArray[], int iSizeOfArray, int iValueToSearch)
+int binarySearch(int aiArray[], int iSizeOfArray, int iValueToSearch)
 {
     int iStartIndex = 0;
     int iEndIndex = iSizeOfArray - 1;
@@ -44,15 +44,15 @@ int binarySearch(int iaArray[], int iSizeOfArray, int iValueToSearch)
     {
         iMidIndex = (iStartIndex + iEndIndex) / 2;
 
-        if (iaArray[iMidIndex] == iValueToSearch)
+        if (aiArray[iMidIndex] == iValueToSearch)
         {
             return iMidIndex;
         }
-        else if (iValueToSearch > iaArray[iMidIndex])
+        else if (iValueToSearch > aiArray[iMidIndex])
         {
             iStartIndex = iMidIndex + 1;
         }
-        else if (iValueToSearch < iaArray[iMidIndex])
+        else if (iValueToSearch < aiArray[iMidIndex])
         {
             iEndIndex = iMidIndex - 1; 
         }
@@ -61,7 +61,7 @@ int binarySearch(int iaArray[], int iSizeOfArray, int iValueToSearch)
     return -1;    
 }
 
-void sortArray(int iaArray[], int iSizeOfArray)
+void sortArray(int aiArray[], int iSizeOfArray)
 {
     int iIndexI;
     int iIndexJ;
@@ -71,11 +71,11 @@ void sortArray(int iaArray[], int iSizeOfArray)
     {
         for(iIndexJ = 0; iIndexJ < iSizeOfArray; iIndexJ++)
         {
-            if(iaArray[iIndexJ] > iaArray[iIndexJ + 1])
+            if(aiArray[iIndexJ] > aiArray[iIndexJ + 1])
             {
-                iTemp = iaArray[iIndexJ];
-                iaArray[iIndexJ] = iaArray[iIndexJ+1];
-                iaArray[iIndexJ+1] = iTemp;
+                iTemp = aiArray[iIndexJ];
+                aiArray[iIndexJ] = aiArray[iIndexJ+1];
+                aiArray[iIndexJ+1] = iTemp;
             }
         }
     }

@@ -3,12 +3,12 @@
 
 void main()
 {
-    FILE *FilePointer;  /*holds the address of file*/
+    FILE *pFilePointer;  /*holds the address of file*/
     int iCharacter;     /*stores each character from file*/
     int iNoOfLinesCounter = 0;
-    FilePointer = fopen("file1.txt", "r");
+    pFilePointer = fopen("file1.txt", "r");
 
-    while((iCharacter = fgetc(FilePointer)) != EOF)
+    while((iCharacter = fgetc(pFilePointer)) != EOF)
     {   
         if(iCharacter == '\n')
         {

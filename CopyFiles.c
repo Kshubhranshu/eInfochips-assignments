@@ -3,27 +3,27 @@
 
 void main()
 {
-    FILE *SourceFile;
-    FILE *DestinationFile;
+    FILE *pSourceFile;
+    FILE *pDestinationFile;
     int iCharacter;
     
-    SourceFile = fopen("file1.txt", "r");
-    if (SourceFile == NULL)
+    pSourceFile = fopen("file1.txt", "r");
+    if (pSourceFile == NULL)
     {
         printf("Cannot open file\n");
         exit(0);
     }
-    DestinationFile = fopen("file2.txt", "w");
-    if (DestinationFile == NULL)
+    pDestinationFile = fopen("file2.txt", "w");
+    if (pDestinationFile == NULL)
     {
         printf("Cannot open file\n");
         exit(0);
     }
-    while((iCharacter = fgetc(SourceFile)) != EOF)
+    while((iCharacter = fgetc(pSourceFile)) != EOF)
     {
-        fputc(iCharacter, DestinationFile);
+        fputc(iCharacter, pDestinationFile);
         //
     }
-    fclose(SourceFile);
-    fclose(DestinationFile);
+    fclose(pSourceFile);
+    fclose(pDestinationFile);
 }

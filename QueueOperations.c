@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int iaQueueData[10];
+int aiQueueData[10];
 int iNextIndex = 0;
 int iFirstIndex = - 1;
 int iSize = 0;
@@ -49,7 +49,7 @@ void enqueue(int iElement)
         printf("Queue full\n");
         return;
     }
-    iaQueueData[iNextIndex] = iElement;
+    aiQueueData[iNextIndex] = iElement;
     iNextIndex = (iNextIndex + 1) % iMaxCapacity;
     if(iFirstIndex == -1)
     {
@@ -65,7 +65,7 @@ int getFrontElement()
         printf("Queue is empty\n");
         return 0;
     }
-    return iaQueueData[iFirstIndex];
+    return aiQueueData[iFirstIndex];
 }
 
 int dequeue()
@@ -75,13 +75,8 @@ int dequeue()
         printf("Queue is empty\n");
         return 0;
     }
-    iDeletedElement = iaQueueData[iFirstIndex];
+    iDeletedElement = aiQueueData[iFirstIndex];
     iFirstIndex = (iFirstIndex + 1) % iMaxCapacity;
     iSize--;
     return iDeletedElement;
-}
-
-void printQueue()
-{
-    ku
 }
