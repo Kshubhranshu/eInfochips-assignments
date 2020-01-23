@@ -3,8 +3,8 @@
 
 void main()
 {
-    FILE *pFilePointer;  /*holds the address of file*/
-    int iCharacter;     /*stores each character from file*/
+    FILE *pFilePointer;  //holds the address of file//
+    int iCharacter;     //stores each character from file
     int iNoOfLinesCounter = 0;
 
     /*stores the address of file opened*/
