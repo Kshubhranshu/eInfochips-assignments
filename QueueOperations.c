@@ -3,10 +3,10 @@
 #include <stdbool.h>
 
 int aiQueueData[10];    //  queue for storing values
-int iNextIndex = 0;     
-int iFirstIndex = - 1;  
-int iSize = 0;
-int iMaxCapacity;   
+int iNextIndex = 0;     //  stores the rear of the queue
+int iFirstIndex = - 1;  //  stores the front of the queue
+int iSize = 0;          //  stores the no of element present in queue
+int iMaxCapacity;       //  maximum capacity of queue
 
 /*
     * gives the no of elements present in the queue
