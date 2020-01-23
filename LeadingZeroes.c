@@ -6,7 +6,7 @@ void main()
     int iNoOfLeadingZeroes;     //  stores the result of leading zeroes
     int iNumber = 10;           // the number
     
-    /*counts the position of highest set bit*/
+    /*counts the position of highest set bit using right shift*/
     while(iNumber >> (iHighestSetBit++));
 
     /*calculates the no of leading zeroes*/

@@ -46,6 +46,8 @@ void main()
     
     printf("Enter the value to search   : ");
     scanf("%d", &iValueToSearch);
+
+    /*stores the return value from binarySearch*/
     iBinarySearchResult = binarySearch(aiArray, iSizeOfArray, iValueToSearch);
 
     /*checks if the element exist in the araay or not*/

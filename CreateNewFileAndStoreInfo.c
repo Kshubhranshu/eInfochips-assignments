@@ -13,7 +13,7 @@ void main()
     if(pFilePointer == NULL)
     {
         printf("Cannot open file!\n");
-        exit(0)
+        exit(0);
     }
 
     /*copies the data into the file*/

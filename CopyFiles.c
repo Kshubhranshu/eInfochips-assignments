@@ -10,6 +10,7 @@ void main()
     /*stores the address of the file opened*/
     pSourceFile = fopen("file1.txt", "r");
     
+    /*checks if file exists or not*/
     if (pSourceFile == NULL)
     {
         printf("Cannot open file\n");

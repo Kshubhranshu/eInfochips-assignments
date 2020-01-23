@@ -57,12 +57,22 @@ void main()
     /*prints the original array*/
     printArray(aiArray, &iSizeOfArray);
 
-    
+    /*delets the last element*/
     deleteFromEnd(aiArray, &iSizeOfArray);
+
+    /*prints the modified array*/
     printArray(aiArray, &iSizeOfArray);
+
+    /*delets the first elements*/
     deleteFromStart(aiArray, &iSizeOfArray);
+
+    /*prints the modified array*/
     printArray(aiArray, &iSizeOfArray);
+
+    /*delets the element at given position*/
     deleteFromBetween(aiArray, &iSizeOfArray, 3);
+
+    /*prints the modified array*/
     printArray(aiArray, &iSizeOfArray);
 }
 

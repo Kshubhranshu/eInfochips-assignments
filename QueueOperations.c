@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int aiQueueData[10]; 
-int iNextIndex = 0;
-int iFirstIndex = - 1;
+int aiQueueData[10];    //  queue for storing values
+int iNextIndex = 0;     
+int iFirstIndex = - 1;  
 int iSize = 0;
-int iMaxCapacity;
+int iMaxCapacity;   
 
 /*
     * gives the no of elements present in the queue

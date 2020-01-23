@@ -39,7 +39,10 @@ void main()
     int iNoOfRows = N;
     int iNoOfColumns = N;
 
+    /*calculates the matrix multiplication*/
     getMatrixMultiplication(aiMatrixA, aiMatrixB,aiResultantMatrix, iNoOfColumns, iNoOfRows);
+
+    /*prints the resultant matrix*/
     getResultantMatrix(aiResultantMatrix, iNoOfColumns, iNoOfRows);
 
 }
