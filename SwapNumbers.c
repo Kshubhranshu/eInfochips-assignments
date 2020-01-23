@@ -1,3 +1,4 @@
+/*Program to swap two nos using xor operator*/
 #include<stdio.h>
 
 void main()

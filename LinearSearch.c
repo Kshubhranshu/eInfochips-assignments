@@ -1,3 +1,4 @@
+/*Program for linear search*/
 #include<stdio.h>
 #include<stdlib.h>
 

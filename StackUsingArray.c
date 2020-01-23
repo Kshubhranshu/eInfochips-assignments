@@ -1,3 +1,4 @@
+/*Program to perform various stack operations*/
 #include <stdio.h>
 #include "Stack.h"
 void main ()

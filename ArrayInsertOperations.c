@@ -1,3 +1,4 @@
+/*Program to perfrom delete operation on array*/
 #include <stdio.h>
 #include <stdlib.h>
 

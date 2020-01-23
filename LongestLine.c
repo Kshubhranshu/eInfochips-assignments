@@ -1,3 +1,4 @@
+/*Program to find the longest line in a file*/
 #include <stdio.h>
 #include <stdlib.h>
 

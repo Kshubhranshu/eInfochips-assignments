@@ -1,3 +1,4 @@
+/*Header file for various stack operations*/
 #include <stdio.h>
 #include <stdbool.h>
 

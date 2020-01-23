@@ -1,3 +1,4 @@
+/*Program to perform matrix multiplication*/
 #include<stdio.h>
 #define N 3  // maximum size of columns of the matrices
 

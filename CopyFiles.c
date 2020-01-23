@@ -1,3 +1,4 @@
+/*Program to copy the data of one file to the other one*/
 #include<stdio.h>
 #include<stdlib.h>
 

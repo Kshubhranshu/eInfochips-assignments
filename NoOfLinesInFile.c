@@ -1,3 +1,4 @@
+/*Program to count no of lines in a file*/
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,3 +1,4 @@
+/*Program to count the number of leading zeroes*/
 #include <stdio.h>
 
 void main()

@@ -1,3 +1,4 @@
+/*Program to create a new file and write in it*/
 #include <stdio.h>
 #include <stdlib.h>
 
