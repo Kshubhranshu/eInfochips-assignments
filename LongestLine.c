@@ -1,8 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+    * this methods finds the line number with maximum characters
+    *
+    * @param aiArray[] is the actual array which stores the charactes count of each line
+    *
+    * @param iSizeOfArray stores the total number of lines in the file
+    *
+    * @return returns the line number with maximum characters count
+*/
 int largestElementIndex(int aiArray[], int iSizeOfArray); 
-
 
 void main()
 {
@@ -53,6 +61,7 @@ void main()
         }
         printf("%c", chCopyCharacter);
     }
+
     printf("\n");
 }
 
@@ -61,6 +70,7 @@ int largestElementIndex(int aiArray[], int iSizeOfArray)
     int iIndex; 
     int iIndexOfLargestElement = 0;
     int iMax = aiArray[0];
+
     for (iIndex = 1; iIndex < iSizeOfArray; iIndex++)
     {
         if (aiArray[iIndex] > iMax)
@@ -69,6 +79,7 @@ int largestElementIndex(int aiArray[], int iSizeOfArray)
             iIndexOfLargestElement = iIndex;
         }
     }
+
     return iIndexOfLargestElement; 
 } 
 

@@ -22,18 +22,17 @@ void main()
         for (iIndex = 0; iIndex < iMaxSizeOfArray; iIndex++)
         {
             pBaseAddressOfArray[iIndex] = rand() % 100;
-            //
         }   
     }
 
     for(iIndex = 0; iIndex < iMaxSizeOfArray; iIndex++)
     {
         printf("[%d]", pBaseAddressOfArray[iIndex]);
-        //
     }
     
     printf("\nEnter the element to search :   ");
     scanf("%d", &iValueToSearch);
+    
     for(iIndex = 0; iIndex < iMaxSizeOfArray; iIndex++)
     {
         if (iValueToSearch == pBaseAddressOfArray[iIndex])
@@ -41,8 +40,8 @@ void main()
             printf("Element found at %d index\n", iIndex);
             exit(0);
         }
-        //
     }
+
     printf("Element not found!\n");
 }
     

@@ -14,7 +14,6 @@ void main()
         {
             iNoOfLinesCounter++;
         }
-        //
     }
 
     if(iCharacter == -1)

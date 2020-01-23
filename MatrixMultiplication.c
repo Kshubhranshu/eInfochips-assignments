@@ -1,6 +1,34 @@
 #include<stdio.h>
-#define N 3  //number of columns
+#define N 3  // maximum size of columns of the matrices
+
+/*
+    * multiplies the two matrices aiMatrixA and aiMatrixB and stores the resultant in the matrix aiResultantMatrix
+    *
+    * @param aiMatrixA is the first matrix of dimension nxn
+    *
+    * @param aiMatrixB is the second matrix of dimension nxn
+    *
+    * @param aiResultantMatrix is the third matrix of dimension nxn
+    *
+    * @param iNoOfColumns is the number of columns of the matrix
+    *
+    * @param iNoOfRows is the number of rows of the matrix
+    *
+    * @return void
+*/
 void getMatrixMultiplication(int aiMatrixA[][N], int aiMatrixB[][N], int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfRows);
+
+/*
+* prints the resultant matrix
+*
+* @param aiResutantMatrix is the resultant matrix
+*
+* @param iNoOfColumns is the no of columns of the resultant matrix
+*
+* @param iNoOfRows is the no of rows of the resultant matrix
+*
+* @return void
+*/
 void getResultantMatrix(int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfRows);
 
 void main()
@@ -10,6 +38,7 @@ void main()
     int aiResultantMatrix[N][N];
     int iNoOfRows = N;
     int iNoOfColumns = N;
+
     getMatrixMultiplication(aiMatrixA, aiMatrixB,aiResultantMatrix, iNoOfColumns, iNoOfRows);
     getResultantMatrix(aiResultantMatrix, iNoOfColumns, iNoOfRows);
 
@@ -46,6 +75,7 @@ void getResultantMatrix(int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfR
         {
             printf("%d    ", aiResultantMatrix[iRowIndex][iColIndex]);
         }
+
         printf("\n");
     }
 }

@@ -1,17 +1,52 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int aiBuffer[100];
-int iNextIndex;
-int iCapacity;
+int aiBuffer[100];  //  stores the stack elements
+int iNextIndex; //  points to the next to the top of the stack
+int iCapacity;  //  stores the total capacity of stack
 
-/*return the number of elements present in the stack*/
+/*
+    * gives the no of elements present in the stack
+    *
+    * return int
+*/
+int getSizeOfStack();
+
+/*
+    * checks if the stack is empty or not
+    *
+    * @return boolean
+*/
+bool isStackEmpty();
+
+/*
+    * adds elements at the top of the stack
+    *
+    * @param iElement is the value of element
+    *
+    * @return void
+*/
+void push(int iElement);
+
+/*
+    * deletes the element from the top of the stack
+    *
+    * @return int
+*/
+int pop();
+
+/*
+    * return the element present at the top of the stack
+    *
+    * @return int
+*/
+int getTopOfStack();
+
 int getSizeOfStack()
 {
     return iNextIndex;
 }
 
-/*checks that if the stack is empty or not*/
 bool isStackEmpty()
 {
     if (iNextIndex == 0)
@@ -24,7 +59,6 @@ bool isStackEmpty()
     }
 }
 
-/*adds element at the top of stack*/
 void push(int iElement)
 {
     if (iNextIndex == iCapacity)
@@ -32,28 +66,31 @@ void push(int iElement)
         printf("Stack Full\n");
         return;
     }
+
     aiBuffer[iNextIndex] = iElement;
     iNextIndex++;
 }
 
-/*deletes element from the top of stack*/
 int pop()
 {
     if (isStackEmpty())
     {
         printf("Stack empty\n");
+
         return -1;
     }
+
     iNextIndex--;
+
     return aiBuffer[iNextIndex];
 }
 
-/*returns the top of stack*/
 int getTopOfStack()
 {
     if (isStackEmpty())
     {
         printf("Stack empty\n");
+
         return -1;
     }
 

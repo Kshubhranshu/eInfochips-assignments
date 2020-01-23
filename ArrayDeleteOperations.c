@@ -1,8 +1,49 @@
 #include <stdio.h>
 
+/*
+    * deletes the first element of the array
+    *
+    * @param aiArray[] is the actual array
+    *
+    * @param pSizePtr stores the addresss of the variable iArraySize
+    *
+    * @return void
+*/
 void deleteFromStart(int aiArray[], int *pSizePtr);
+
+/*
+    * deletes the last element of the array
+    *
+    * @param aiArray[] is the actual array
+    *
+    * @param pSizePtr stores the addresss of the variable iArraySize
+    *
+    * @return void
+*/
 void deleteFromEnd(int aiArray[], int *pSizePtr);
+
+/*
+     deletes the in between element of the array
+    *
+     @param aiArray[] is the actual array
+    *
+     @param pSizePtr stores the addresss of the variable iArraySize
+    *
+     @param iPositin is the index of the element to be deleted
+    *
+     @return void
+*/
 void deleteFromBetween(int aiArray[], int *pSizePtr, int iPostiton);
+
+/*
+    * pritns the entire array
+    *
+    * @param aiArray[] is the actual array
+    *
+    * @param pSizePtr stores the addresss of the variable iArraySize
+    *
+    * @return void
+*/
 void printArray(int aiArray[], int *pSizePtr);
 
 void main()
@@ -12,7 +53,11 @@ void main()
 
     printf("Enter the size of array : ");
     scanf("%d", &iSizeOfArray);
+
+    /*prints the original array*/
     printArray(aiArray, &iSizeOfArray);
+
+    
     deleteFromEnd(aiArray, &iSizeOfArray);
     printArray(aiArray, &iSizeOfArray);
     deleteFromStart(aiArray, &iSizeOfArray);
@@ -24,7 +69,7 @@ void main()
 void deleteFromStart(int aiArray[], int *pSizePtr)
 {
     int iIndex;
-    int iSizeOfArray = --(*pSizePtr);
+    int iSizeOfArray = --(*pSizePtr);   //  decreases the size of the array on deletion
 
     for(iIndex = 0; iIndex < iSizeOfArray; iIndex++)
     {
@@ -34,13 +79,13 @@ void deleteFromStart(int aiArray[], int *pSizePtr)
 
 void deleteFromEnd(int aiArray[], int *pSizePtr)
 {
-    (*pSizePtr)--;   
+    (*pSizePtr)--;   //  decreases the size of the array on deletion
 }
 
 void deleteFromBetween(int aiArray[], int *pSizePtr, int iPosition)
 {
     int iIndex;
-    int iSizeOfArray = (*pSizePtr)--;
+    int iSizeOfArray = (*pSizePtr)--;   //  decreases the size of the array on deletion
 
     for(iIndex = iPosition; iIndex < (iSizeOfArray - 1); iIndex++)
     {
@@ -51,12 +96,12 @@ void deleteFromBetween(int aiArray[], int *pSizePtr, int iPosition)
 void printArray(int aiArray[], int *pSizePointer)
 {
     int iIndex;
-    int iSizeOfArray = (*pSizePointer);
+    int iSizeOfArray = (*pSizePointer);    //  decreases the size of the array on deletion
 
     for(iIndex = 0; iIndex < iSizeOfArray; iIndex++)
     {
         printf("%d", aiArray[iIndex]);
-        //
     }
+
     printf("\n");
 }
