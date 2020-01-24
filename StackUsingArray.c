@@ -20,7 +20,7 @@ void main ()
         printf("4. Print top of stack\n");
         printf("5. Print stack\n");
         printf("0. Exit\n");
-        printf("Make a selection    : ");
+        printf("Make a selection    : ");   
         scanf("%d", &iChoice);
 
         switch(iChoice)
