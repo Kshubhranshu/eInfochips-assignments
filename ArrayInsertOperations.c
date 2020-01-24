@@ -54,17 +54,70 @@ void printArray(int aiArray[], int *pSizePointer);
 
 void main()
 {
-    int aiArray[100] = {1, 2, 3, 4, 5};
-    int iArraySize = 5;
-    int iElement = 100;
-    
-    printArray(aiArray, &iArraySize);
-    insertAtBeginning(aiArray, &iArraySize, iElement);
-    printArray(aiArray, &iArraySize);
-    insertInBetween(aiArray, &iArraySize, 3, iElement);
-    printArray(aiArray, &iArraySize);   
-    insertAtEnd(aiArray, &iArraySize, iElement);
-    printArray(aiArray, &iArraySize);
+    int aiArray[100];
+    int iArraySize = 0;
+    int iElement;
+    int iPosition;
+
+    while(1)
+    {   
+        int iChoice;
+
+        /*menu for array insertion operations*/
+        printf("Array Insert Operations Menu\n");
+        printf("1. Insert element at beginning of the array\n");
+        printf("2. Insert element in the middle of the array\n");
+        printf("3. Insert element at the end of the array\n");
+        printf("4. Print the array\n");
+        printf("0. Exit\n\n");
+        printf("Make a selection    : ");
+        scanf("%d", &iChoice);
+
+        switch(iChoice)
+        {
+        case 0:
+                exit(0);
+        
+        case 1:
+                /*insert at beginning*/
+                printf("Enter the value to insert : ");
+                scanf("%d", &iElement);
+                insertAtBeginning(aiArray, &iArraySize, iElement);
+                break;
+
+        case 2:
+                /*insert in between*/
+                printf("Enter the value to insert : ");
+                scanf("%d", &iElement);
+                printf("Enter the position : ");
+                scanf("%d", &iPosition);
+                insertInBetween(aiArray, &iArraySize, iPosition, iElement);
+                break;
+
+        case 3:
+                /*insert at end*/
+                printf("Enter the value to insert : ");
+                scanf("%d", &iElement);
+                insertAtEnd(aiArray, &iArraySize, iElement);
+                break;
+
+        case 4:
+                /*check if array is empty*/
+                if(iArraySize == 0)
+                {
+                    printf("Array Empty, Insert an element first.\n");
+                }
+
+                /*prints array*/
+                printArray(aiArray, &iArraySize);
+                break;
+        
+        default:
+                printf("Invalid Selection!\n");
+                break;
+        }
+        printf("\n");
+    }
 }
 
 void insertAtBeginning(int aiArray[], int *pSizePointer, int iElement)

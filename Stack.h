@@ -43,6 +43,15 @@ int pop();
 */
 int getTopOfStack();
 
+/*
+    * prints the stack
+    *
+    * @return void
+*/
+void printStack();
+
+
+
 int getSizeOfStack()
 {
     return iNextIndex;
@@ -96,6 +105,23 @@ int getTopOfStack()
     }
 
     return aiBuffer[iNextIndex - 1];
+}
+
+void printStack()
+{
+    int iIndex = iNextIndex - 1;
+
+    if(isStackEmpty())
+    {
+        printf("Nothing to print stack empty\n");
+    }
+    else
+    {
+        for (; iIndex >= 0; iIndex--)
+        {
+            printf("[%d]\n", aiBuffer[iIndex]);
+        }
+    }
 }
 
 

@@ -1,6 +1,7 @@
 /*Program to perform various queue operations*/
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 int aiQueueData[10];    //  queue for storing values
 int iNextIndex = 0;     //  stores the rear of the queue
@@ -45,15 +46,71 @@ int getFrontElement();
 */
 int dequeue();
 
+/*
+    * prints the queue
+    *
+    * @return void
+*/
+void printQueue();
+
 void main()
 {
     iMaxCapacity = 5;
-    enqueue(10);  
-    enqueue(50);  
-    enqueue(30);  
-    enqueue(60);  
-    enqueue(60);  
-    enqueue(70);  
+    int iValue;
+
+    while(1)
+    {   
+        int iChoice;
+
+        /*menu for array insertion operations*/
+        printf("Queue Operations Menu\n");
+        printf("1. Insert element\n");
+        printf("2. Delete element\n");
+        printf("3. No of elements in Queue\n");
+        printf("4. Print front element\n");
+        printf("5. Print queue\n");
+        printf("0. Exit\n");
+        printf("Make a selection    : ");
+        scanf("%d", &iChoice);
+
+        switch(iChoice)
+        {
+            case 0:
+                    exit(0);
+
+            case 1:
+                    /*enqueue*/
+                    printf("Enter the value to insert : ");
+                    scanf("%d", &iValue);
+                    enqueue(iValue);
+                    break;
+
+            case 2:
+                    /*dequeue*/
+                    printf("%d deleted\n", dequeue());
+                    break;
+
+            case 3:
+                    /*no of elements in queue*/
+                    printf("No of elements in queue : %d\n", getSize());
+                    break;
+
+            case 4:
+                    /*gets the front element of queue*/
+                    printf("Front element   : %d\n", getFrontElement());
+                    break;
+            
+            case 5:
+                    /*print queue*/
+                    printQueue();
+                    break;
+
+            default:
+                    printf("Invalid Selection!\n");
+                    break;
+        }
+        printf("\n");
+    }
 }
 
 int getSize()
@@ -77,7 +134,7 @@ void enqueue(int iElement)
 {
     if(iSize == iMaxCapacity)
     {
-        printf("Queue full\n");
+        printf("Queue full!!!\n");
         return;
     }
 
@@ -97,7 +154,7 @@ int getFrontElement()
 {
     if(isEmpty())
     {
-        printf("Queue is empty\n");
+        printf("Queue is empty!!\n");
         return 0;
     }
 
@@ -110,7 +167,7 @@ int dequeue()
 
     if (isEmpty())
     {
-        printf("Queue is empty\n");
+        printf("Queue is empty!!\n");
         return 0;
     }
 
@@ -119,4 +176,24 @@ int dequeue()
     iSize--;
 
     return iDeletedElement;
+}
+
+void printQueue()
+{
+    int iIndex;
+
+    if(isEmpty())
+    {
+        printf("Nothing to print Queue empty\n");
+        
+    }
+    else
+    {
+        for(iIndex = iFirstIndex; iIndex < iMaxCapacity; iIndex++)
+        {
+            printf("[%d]", aiQueueData[iIndex]);
+        }
+    }
+
+    printf("\n");
 }
