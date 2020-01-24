@@ -76,6 +76,7 @@ void main()
         switch(iChoice)
         {
             case 0:
+                    /*program termination*/
                     exit(0);
 
             case 1:

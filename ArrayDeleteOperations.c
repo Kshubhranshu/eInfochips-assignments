@@ -71,36 +71,37 @@ void main()
         switch(iChoice)
         {
             case 0:
+                    /*program termination*/
                     exit(0);
-            
+
             case 1:
                     /*delete from beginning*/
                     deleteFromStart(aiArray, &iArraySize);
                     break;
-    
+
             case 2:
                     /*delete in between*/
                     printf("Enter the position : ");
                     scanf("%d", &iPosition);
                     deleteFromBetween(aiArray, &iArraySize, iPosition);
                     break;
-    
+
             case 3:
                     /*delete from end*/
                     deleteFromEnd(aiArray, &iArraySize);
                     break;
-    
+
             case 4:
                     /*check if array is empty*/
                     if(iArraySize == 0)
                     {
                         printf("Array Empty, Nothing to delete.\n");
                     }
-                    
+
                     /*prints array*/
                     printArray(aiArray, &iArraySize);
                     break;
-            
+
             default:
                     printf("Invalid Selection!\n");
                     break;

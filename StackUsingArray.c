@@ -26,6 +26,7 @@ void main ()
         switch(iChoice)
         {
             case 0:
+                    /*program termination*/
                     exit(0);
 
             case 1:
@@ -47,7 +48,7 @@ void main ()
 
             case 4:
                     /*gets the front element of stack*/
-                    printf("Top element   : %d\n", getTopOfStack());2
+                    printf("Top element   : %d\n", getTopOfStack());
                     break;
             
             case 5:
