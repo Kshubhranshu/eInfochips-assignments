@@ -1,5 +1,0 @@
-File input/output
-
-Functions
-Defined in header <stdio.h>
-
