@@ -5,8 +5,11 @@ void main()
 {
     int iHighestSetBit = 0;     //  stores the position of highest set bit
     int iNoOfLeadingZeroes;     //  stores the result of leading zeroes
-    int iNumber = 10;           // the number
+    int iNumber;           
     
+    printf("Enter the number    : ");
+    scanf("%d", &iNumber);
+
     /*counts the position of highest set bit using right shift*/
     while(iNumber >> (iHighestSetBit++));
 

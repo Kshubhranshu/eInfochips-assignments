@@ -4,7 +4,7 @@
 void main() 
 { 
     FILE *pFilePointer;
-    char chCharchter;
+    char chCharacter;
 
     /*stores the base address of the file*/
     pFilePointer = fopen(__FILE__, "r");
@@ -20,9 +20,9 @@ void main()
         /*reads each character from the file and prints it on the console*/
         do
         {
-        chCharchter = fgetc(pFilePointer);
-        putchar(chCharchter);
-        } while (chCharchter != EOF);
+        chCharacter= fgetc(pFilePointer);
+        putchar(chCharacter);
+        } while (chCharacter != EOF);
     }
 
     /*closing the file*/
