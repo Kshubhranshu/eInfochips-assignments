@@ -103,6 +103,7 @@ void main()
                     break;
 
             default:
+                    /*invalid input*/
                     printf("Invalid Selection!\n");
                     break;
         }

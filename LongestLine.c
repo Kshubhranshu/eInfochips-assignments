@@ -15,15 +15,14 @@ int largestElementIndex(int aiArray[], int iSizeOfArray);
 
 void main()
 {
-    FILE *pFilePointer;
-    int iCharactersCountBuffer[10] = {0};
-    char chCopyCharacter;
-    char chCharacters;
-    int iIndex = 0;
-    int iNoOfLines = 0;
-    int iCursorPosition;
-    int iCharactersCountSum = 0;
-    int iIndexForCharacterCountSum;
+    FILE *pFilePointer; 
+    int aiCharactersCountBuffer[100];    
+    int iLineCount = 0;             // counts the total no of lines in the file
+    char *pLineData;                //  stores each line data to count no of characters
+    size_t iLengthOfEachLine = 0;   //  stores the length of each line
+    int iMaxCharactersLineNumber;   //  stores the line number with maximum characters count
+    int iOffsetValue = 0;           
+    int iIndex;     // for iterating over the characters count buffer
 
     /*stores the address of the file opened*/
     pFilePointer = fopen("file1.txt", "r");
@@ -35,45 +34,30 @@ void main()
         exit(0);
     }
 
-    /*reading data from file using fgetc*/
-    while((chCharacters = fgetc(pFilePointer)) != EOF)
-    {   
-        iCharactersCountBuffer[iIndex]++;
+    /*counting no of characters per line and storing in aiCharactersCountBuffer*/
+    while ((aiCharactersCountBuffer[iLineCount++] = getline(&pLineData, &iLengthOfEachLine, pFilePointer)) != -1);
 
-        /*counts the no of lines in the file*/
-        if(chCharacters == '\n')
-        {
-            iIndex++;
-            iNoOfLines++;
-        }
-    }
+    /*stores the line number having max characters count*/
+    iMaxCharactersLineNumber = largestElementIndex(aiCharactersCountBuffer, iLineCount);
 
-    iNoOfLines = iNoOfLines + 1;
-
-    /*stores the line no having max characters*/
-    iCursorPosition = largestElementIndex(iCharactersCountBuffer, iNoOfLines);
-
-    /*counts the no of characters occuring before the line with highest characters*/
-    for(iIndexForCharacterCountSum = 0; iIndexForCharacterCountSum < iCursorPosition; iIndexForCharacterCountSum++)
+    /*counting the offset value from SEEK_SET*/
+    for(iIndex = 0; iIndex < iMaxCharactersLineNumber; iIndex++)
     {
-        iCharactersCountSum += iCharactersCountBuffer[iIndexForCharacterCountSum];
-    }
-
-    /*prints the line no and no of characters*/
-    printf("Longest line is line no. %d and its count is %d\n", iCursorPosition, iCharactersCountBuffer[iCursorPosition]);
+         iOffsetValue += aiCharactersCountBuffer[iIndex];
+    } 
     
-    /*prints the line*/
-    fseek(pFilePointer, iCharactersCountSum, SEEK_SET);
-    while((chCopyCharacter = fgetc(pFilePointer)) != EOF)
-    {   
-        if(chCopyCharacter == '\n')
-        {
-            break;
-        }
-        printf("%c", chCopyCharacter);
-    }
+    /*prints the line no and no of characters*/
+    printf("Longest line is line no. %d and its count is %d\n", (iMaxCharactersLineNumber + 1), aiCharactersCountBuffer[iMaxCharactersLineNumber]);
+     
+    /*sets the cursor to the starting of the line having max characters*/
+    fseek(pFilePointer, iOffsetValue, SEEK_SET);
 
-    printf("\n");
+    /*prints the line having max characters*/
+    fgets(pLineData, 256, pFilePointer) != NULL;
+    printf("%s\n", pLineData);
+
+    /*closing file*/
+    fclose(pFilePointer);
 }
 
 int largestElementIndex(int aiArray[], int iSizeOfArray) 
