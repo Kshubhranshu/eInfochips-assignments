@@ -1,6 +1,7 @@
 /*Program to perfrom insert operation on array*/
 #include <stdio.h>
 #include <stdlib.h>
+#define N 100
 
 /*
     * deletes the first element of the array
@@ -50,7 +51,7 @@ void printArray(int aiArray[], int *pSizePtr);
 
 void main()
 {
-    int aiArray[100] = {1, 2, 3, 4, 5, 6, 7, 8};
+    int aiArray[N] = {1, 2, 3, 4, 5, 6, 7, 8};
     int iArraySize = 8;
     int iPosition;
 
