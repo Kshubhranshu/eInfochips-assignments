@@ -1,7 +1,7 @@
 /*Program to perfrom delete operation on array*/
 #include <stdio.h>
 #include <stdlib.h>
-#define N 5   // array max size limit
+#define N 100   // array max size limit
 
 /*
     * inserts element at the beginning of the array
