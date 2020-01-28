@@ -6,7 +6,7 @@ void main()
     int iFirstNumber;
     int iSecondNumber;
 
-    printf("Enter first and second number   : ");
+    printf("Enter first and second integers   : ");
     scanf("%d %d", &iFirstNumber, &iSecondNumber);
 
     /*swapping*/
