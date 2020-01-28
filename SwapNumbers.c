@@ -20,7 +20,7 @@ void main()
 
     /*inputs*/
     printf("Enter first number [type: integer][range: %d to %d]: ", INT_MIN, INT_MAX);
-    scanf("%d", &iFirstNumber);
+    printf("%d", scanf("%d", &iFirstNumber));
 
     /*validate input*/
     validateInput(iFirstNumber);

@@ -12,7 +12,7 @@ void main()
     pSourceFile = fopen("file1.txt", "r");
     
     /*checks if file exists or not*/
-    if (pSourceFile == NULL)
+    if (NULL == pSourceFile)
     {
         printf("Cannot open file\n");
         exit(0);
@@ -22,7 +22,7 @@ void main()
     pDestinationFile = fopen("file2.txt", "w");
     
     /*checks if file exists or not*/
-    if (pDestinationFile == NULL)
+    if (NULL == pDestinationFile)
     {
         printf("Cannot open file\n");
         exit(0);
