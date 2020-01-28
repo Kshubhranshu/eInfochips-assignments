@@ -65,9 +65,9 @@ int isFull(int iArraySize);
 void main()
 {
     int aiArray[N];
-    int iArraySize = 0;
-    int iElement;
-    int iPosition;
+    int iArraySize = 0;     // counter for counting no of elements currently preseent in arary
+    int iElement;           
+    int iPosition;          
 
     while(1)
     {   
