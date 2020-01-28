@@ -62,8 +62,6 @@ void printArray(int aiArray[], int *pSizePointer);
 */
 int isFull(int iArraySize);
 
-
-
 void main()
 {
     int aiArray[N];
@@ -123,7 +121,7 @@ void main()
 
         case 4:
                 /*check if array is empty*/
-                if(iArraySize == 0)
+                if(0 == iArraySize)
                 {
                     printf("Array Empty, Insert an element first.\n");
                 }
@@ -196,7 +194,6 @@ int isFull(int iArraySize)
     {
         return 0;
     }
-    
 }
 
 
