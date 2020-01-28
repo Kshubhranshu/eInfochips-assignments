@@ -49,6 +49,15 @@ void deleteFromBetween(int aiArray[], int *pSizePtr, int iPostiton);
 */
 void printArray(int aiArray[], int *pSizePtr);
 
+/*
+    * checks if the array is empty
+    *
+    * @param iArraySize;
+    *
+    * @return int
+*/
+int isEmpty(int iArraySize);
+
 void main()
 {
     int aiArray[N] = {1, 2, 3, 4, 5, 6, 7, 8};
@@ -68,6 +77,13 @@ void main()
         printf("0. Exit\n");
         printf("Make a selection    : ");
         scanf("%d", &iChoice);
+
+        /*validation check if the array is empty*/
+        if(isEmpty(iArraySize) &&  1 == iChoice || 2 == iChoice || 3 == iChoice)
+        {
+            printf("Array empty cannot delete!!\n");
+            exit(0);
+        }
 
         switch(iChoice)
         {
@@ -96,7 +112,7 @@ void main()
                     /*check if array is empty*/
                     if(iArraySize == 0)
                     {
-                        printf("Array Empty, Nothing to delete.\n");
+                        printf("Array Empty, Nothing to print.\n");
                     }
 
                     /*prints array*/
@@ -150,4 +166,16 @@ void printArray(int aiArray[], int *pSizePointer)
     }
 
     printf("\n");
+}
+
+int isEmpty(int iArraySize)
+{
+    if(0 == iArraySize)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
