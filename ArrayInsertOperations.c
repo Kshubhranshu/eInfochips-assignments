@@ -1,6 +1,7 @@
 /*Program to perfrom delete operation on array*/
 #include <stdio.h>
 #include <stdlib.h>
+#define N 5   // array max size limit
 
 /*
     * inserts element at the beginning of the array
@@ -52,9 +53,20 @@ void insertAtEnd(int aiArray[], int *pSizePointer, int iElement);
 */
 void printArray(int aiArray[], int *pSizePointer);
 
+/*
+    * checks if the array is full
+    *
+    * @param iArraySize;
+    *
+    * @return int
+*/
+int isFull(int iArraySize);
+
+
+
 void main()
 {
-    int aiArray[100];
+    int aiArray[N];
     int iArraySize = 0;
     int iElement;
     int iPosition;
@@ -72,6 +84,13 @@ void main()
         printf("0. Exit\n\n");
         printf("Make a selection    : ");
         scanf("%d", &iChoice);
+
+        /*validation check if the array is full*/
+        if(isFull(iArraySize) &&  1 == iChoice || 2 == iChoice || 3 == iChoice)
+        {
+            printf("Array full cannot insert element!!\n");
+            exit(0);
+        }
 
         switch(iChoice)
         {
@@ -165,6 +184,19 @@ void printArray(int aiArray[], int *pSizePointer)
     }
 
     printf("\n");
+}
+
+int isFull(int iArraySize)
+{
+    if(N == iArraySize)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+    
 }
 
 
