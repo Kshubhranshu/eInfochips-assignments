@@ -10,9 +10,16 @@
     *
     * @param iSizeOfArray stores the total number of lines in the file
     *
-    * @return returns the line number with maximum characters count
+    * @return int
 */
-int largestElementIndex(int aiArray[], int iSizeOfArray); 
+int largestElementIndex(int aiArray[], int iSizeOfArray);
+
+/*
+    * this methods shows the file usage details
+    *
+    * @return void
+*/
+void getFileUsage();
 
 void main()
 {
@@ -34,6 +41,9 @@ void main()
         printf("File doesnot exists!\n");
         exit(0);
     }
+
+    /*file usage information*/
+    getFileUsage();
 
     /*counting no of characters per line and storing in aiCharactersCountBuffer*/
     while ((aiCharactersCountBuffer[iLineCount] = getline(&pLineData, &iLengthOfEachLine, pFilePointer)) != -1)
@@ -97,4 +107,15 @@ int largestElementIndex(int aiArray[], int iSizeOfArray)
 
     return iIndexOfLargestElement; 
 } 
+
+void getFileUsage()
+{
+    printf("File Usage\n");
+    printf("Max array size limit    : 200\n");
+    printf("Max lines limit         : 200\n");
+    printf("Max characters per line : 256\n");
+    printf("File input name         : file.txt\n");
+    printf("File directory          : /eInfochips-tasks-master\n");
+    printf("\n");
+}
 
