@@ -1,8 +1,9 @@
 /*Header file for various stack operations*/
 #include <stdio.h>
 #include <stdbool.h>
+#define N
 
-int aiBuffer[100];  //  stores the stack elements
+int aiBuffer[N];  //  stores the stack elements
 int iNextIndex; //  points to the next to the top of the stack
 int iCapacity;  //  stores the total capacity of stack
 
@@ -59,7 +60,7 @@ int getSizeOfStack()
 
 bool isStackEmpty()
 {
-    if (iNextIndex == 0)
+    if (0 == iNextIndex)
     {
         return true;
     }
