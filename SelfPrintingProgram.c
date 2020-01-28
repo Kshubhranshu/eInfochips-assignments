@@ -12,7 +12,7 @@ void main()
     /*checks if file exists or not*/
     if(pFilePointer == NULL)
     {
-        printf("File not opened successfully\n");
+        printf("File failed to open!!!\n");
     }
     else
     {   
