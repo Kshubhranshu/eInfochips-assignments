@@ -1,6 +1,7 @@
 /*Program to find the longest line in a file*/
 #include <stdio.h>
 #include <stdlib.h>
+#define N 200
 
 /*
     * this methods finds the line number with maximum characters
@@ -16,7 +17,7 @@ int largestElementIndex(int aiArray[], int iSizeOfArray);
 void main()
 {
     FILE *pFilePointer; 
-    int aiCharactersCountBuffer[100];    
+    int aiCharactersCountBuffer[N];    
     int iLineCount = 0;             // counts the total no of lines in the file
     char *pLineData;                //  stores each line data to count no of characters
     size_t iLengthOfEachLine = 0;   //  stores the length of each line
@@ -36,6 +37,13 @@ void main()
 
     /*counting no of characters per line and storing in aiCharactersCountBuffer*/
     while ((aiCharactersCountBuffer[iLineCount++] = getline(&pLineData, &iLengthOfEachLine, pFilePointer)) != -1);
+
+    /*validation for line number maximum limit*/
+    if(iLineCount > 199)
+    {
+        printf("Maximum line limit exceeded!!!\n");
+        exit(0);
+    }
 
     /*stores the line number having max characters count*/
     iMaxCharactersLineNumber = largestElementIndex(aiCharactersCountBuffer, iLineCount);
