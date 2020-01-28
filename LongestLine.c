@@ -36,7 +36,7 @@ void main()
     pFilePointer = fopen("file1.txt", "r");
 
     /*checks whether file exists or not*/
-    if(pFilePointer == NULL)
+    if(NULL == pFilePointer)
     {
         printf("File doesnot exists!\n");
         exit(0);
