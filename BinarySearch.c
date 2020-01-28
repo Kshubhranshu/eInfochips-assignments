@@ -1,6 +1,7 @@
 /*Program for Binary Search*/
 #include<stdio.h>
 #include<stdlib.h>
+#define N 100
 
 /*
     * finds the element in the array
@@ -29,7 +30,7 @@ void sortArray(int aiArray[], int iSizeOfArray);
 void main()
 {
     int aiArray[100] = {8,6,5,4,3,2,1,3,4};
-    int iSizeOfArray;
+    int iSizeOfArray ;
     int iValueToSearch; 
     int iBinarySearchResult;    //  stores the index of found element
 
