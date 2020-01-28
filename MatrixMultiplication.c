@@ -1,6 +1,6 @@
 /*Program to perform matrix multiplication*/
 #include<stdio.h>
-#define N 3  // maximum size of columns of the matrices
+#define N 100  // maximum size of columns of the matrices
 
 /*
     * multiplies the two matrices aiMatrixA and aiMatrixB and stores the resultant in the matrix aiResultantMatrix
