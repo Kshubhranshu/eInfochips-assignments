@@ -1,35 +1,47 @@
 /*Program to swap two nos using xor operator*/
 #include <stdio.h>
-#include <limits.h>
-
-/*
-* validates the inputs
-*
-* @param iValue
-*
-* @return void
-*/
-void validateInput(int iValue);
+#define MAX 1000
+#define MIN 0
+#pragma message "**OTHER VALUE OTHER THAN INTEGER MAY CAUSE DATA LOSS**"
 
 void main()
 {
     int iFirstNumber;
     int iSecondNumber;
-
     int iFlag;  // stores the return value from scanf
 
-    /*inputs*/
-    printf("Enter first number [type: integer][range: %d to %d]: ", INT_MIN, INT_MAX);
-    printf("%d", scanf("%d", &iFirstNumber));
+    /*input*/
+    printf("Enter first number [type: integer][range: %d to %d]: ", MIN, MAX);
+    iFlag = ("%d", &iFirstNumber);
 
     /*validate input*/
-    validateInput(iFirstNumber);
+    if(0 == iFlag)
+    {
+        printf("Invalid input\n");
+        exit(0);
+    }
+    else if(iFirstNumber > MAX || iFirstNumber < MIN)
+    {
+        printf("Number out of range!!!\n");
+        exit(0);
+    }
     
-    printf("Enter second number [type: integer][range: %d to %d]: ", INT_MIN, INT_MAX);
-    scanf("%d", &iSecondNumber);
+    /*input*/ 
+    printf("Enter second number [type: integer][range: %d to %d]: ", MIN, MAX);
+    iFlag = ("%d", &iSecondNumber);
 
     /*validate input*/
-    validateInput(iSecondNumber);
+    if(0 == iFlag)
+    {
+        printf("Invalid input\n");
+        exit(0);
+    }
+    else if(iSecondNumber > MAX || iSecondNumber < MIN)
+    {
+        printf("Number out of range!!!\n");
+        exit(0);
+    }
+
     /*swapping*/
     iFirstNumber = iFirstNumber ^ iSecondNumber;
     iSecondNumber = iFirstNumber ^ iSecondNumber;
@@ -38,13 +50,4 @@ void main()
     /*print swapped value*/
     printf("First integer swapped value : %d\n", iFirstNumber);
     printf("Second integer swapped value : %d\n", iSecondNumber);
-}
-
-void validateInput(int iValue)
-{
-    if(iValue < INT_MIN || iValue > INT_MAX)
-    {
-        printf("Invalid input\n");
-        printf("Program terminated!!!\n");
-    }
 }
