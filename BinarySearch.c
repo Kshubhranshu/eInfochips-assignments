@@ -27,24 +27,56 @@ int binarySearch(int aiArray[], int iSizeOfArray, int iValueToSearch);
 */
 void sortArray(int aiArray[], int iSizeOfArray);
 
+/*
+    * mehtod for printing the array
+    *
+    * @param aiArray[] is the actual array
+    *
+    * @param iSizeOfArray is the size of the arrray
+    *
+    * @return void
+*/
+void printArray(int aiArray[], int iSizeOfArray);
+
+/*
+    * mehtod for array input
+    *
+    * @param aiArray[] is the actual array
+    *
+    * @param iSizeOfArray is the size of the arrray
+    *
+    * @return void
+*/
+void getInput(int aiArray[], int iSizeOfArray);
+
 void main()
 {
-    int aiArray[100] = {8,6,5,4,3,2,1,3,4};
-    int iSizeOfArray ;
+    int aiArray[N];
+    int iSizeOfArray;
     int iValueToSearch; 
     int iBinarySearchResult;    //  stores the index of found element
 
-    printf("Enter the size of array     : ");
+    printf("Enter the size of array : ");
     scanf("%d", &iSizeOfArray);
+
+    /*input array*/
+    printf("Enter %d elements into array\n", iSizeOfArray);
+    getInput(aiArray, iSizeOfArray);
+    printf("\n");
+
+    /*prints original array*/
+    printf("Original Array    :   ");
+    printArray(aiArray, iSizeOfArray);
+    printf("\n");
+
 
     /*sorts the array*/
     sortArray(aiArray, iSizeOfArray);
 
     /*prints the sorted array*/
-    for (int i = 0; i < iSizeOfArray; i++)
-    {
-        printf("%d  ", aiArray[i]);
-    }
+    printf("Sorted Array      :   ");
+    printArray(aiArray, iSizeOfArray);
+    printf("\n");
     
     printf("Enter the value to search   : ");
     scanf("%d", &iValueToSearch);
@@ -53,7 +85,7 @@ void main()
     iBinarySearchResult = binarySearch(aiArray, iSizeOfArray, iValueToSearch);
 
     /*checks if the element exist in the araay or not*/
-    if (iBinarySearchResult == -1)
+    if (-1 == iBinarySearchResult)
     {
         printf("Element not found\n");
     }
@@ -96,9 +128,9 @@ void sortArray(int aiArray[], int iSizeOfArray)
     int iIndexJ;
     int iTemp;  // temp variable for swapping
 
-    for(iIndexI = 0; iIndexI < iSizeOfArray; iIndexI++)
+    for(iIndexI = 0; iIndexI < iSizeOfArray - 1; iIndexI++)
     {
-        for(iIndexJ = 0; iIndexJ < iSizeOfArray; iIndexJ++)
+        for(iIndexJ = 0; iIndexJ < (iSizeOfArray - iIndexI - 1); iIndexJ++)
         {
             if(aiArray[iIndexJ] > aiArray[iIndexJ + 1])
             {   
@@ -109,5 +141,24 @@ void sortArray(int aiArray[], int iSizeOfArray)
                 aiArray[iIndexJ+1] = iTemp;
             }
         }
+    }
+}
+
+void printArray(int aiArray[], int iSizeOfArray)
+{
+    int iIndex;
+    for (iIndex= 0; iIndex < iSizeOfArray; iIndex++)
+    {
+        printf("%d  ", aiArray[iIndex]);
+    }
+}
+
+void getInput(int aiArray[], int iSizeOfArray)
+{
+    int iIndex;
+
+    for(iIndex = 0; iIndex < iSizeOfArray; iIndex++)
+    {
+        scanf("%d", &aiArray[iIndex]);
     }
 }
