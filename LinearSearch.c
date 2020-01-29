@@ -16,7 +16,7 @@ void main()
     pBaseAddressOfArray = (int*) malloc(iMaxSizeOfArray * sizeof(int));
     
     /*checks if memory allocated to array or not*/
-    if (pBaseAddressOfArray == NULL)
+    if (NULL == pBaseAddressOfArray)
     {
         printf("Memory not allocated. \n");
         exit(0);
@@ -24,6 +24,7 @@ void main()
     else
     {   
         /*assignes random numbers to array*/
+        printf("Randomly values allocated into array\n");
         for (iIndex = 0; iIndex < iMaxSizeOfArray; iIndex++)
         {
             pBaseAddressOfArray[iIndex] = rand() % 100;
