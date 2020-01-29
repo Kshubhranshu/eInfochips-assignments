@@ -1,5 +1,6 @@
-/*Program to perform matrix multiplication*/
-#include<stdio.h>
+/*Program to perform matrix multiplication for matrix nxn*/
+#include <stdio.h>
+#include <stdlib.h>
 #define N 100  // maximum size of columns of the matrices
 
 /*
@@ -32,15 +33,69 @@ void getMatrixMultiplication(int aiMatrixA[][N], int aiMatrixB[][N], int aiResul
 */
 void getResultantMatrix(int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfRows);
 
+/*
+* takes user input for matrix data
+*
+* @param aiMatrix
+*
+* @param iNoOfColumns is the no of columns of the matrix
+*
+* @param iNoOfRows is the no of rows of the matrix
+*
+* @return void
+*/
+void getInput(int aiMatrix[][N], int *pNoOfColumns, int *pNoOfRows);
+
+
+
 void main()
 {
-    int aiMatrixA[N][N] = {{1,2,3}, {4,5,6}, {7,8,9}};
-    int aiMatrixB[N][N] = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int iNoOfRows;
+    int iNoOfColumns;
+    int aiMatrixA[N][N];
+    int aiMatrixB[N][N];
     int aiResultantMatrix[N][N];
-    int iNoOfRows = N;
-    int iNoOfColumns = N;
+
+
+    printf("**constraint : [nxn] matrix**\n");
+
+    /*input rows*/
+    printf("Enter no of rows : ");
+    scanf("%d", &iNoOfRows);
+
+    /*input columns*/
+    printf("Enter no of columns : ");
+    scanf("%d", &iNoOfColumns);
+
+    printf("\n");
+
+    /*validate matrix*/
+    if((0 == iNoOfRows) && (0 == iNoOfColumns) || (iNoOfColumns != iNoOfRows))
+    {   
+        printf("Invalid inputs dimensions cannot be %dx%d refer constraints!!!\n", iNoOfRows, iNoOfColumns);
+        exit(0);
+    }
+
+    /*matrixA input*/
+    printf("Enter into MatrixA\n");
+    getInput(aiMatrixA, &iNoOfColumns, &iNoOfRows);
+
+    /*prints matrix A*/
+    printf("Matrix A [%dx%d]\n", iNoOfRows, iNoOfColumns);
+    getResultantMatrix(aiMatrixA, iNoOfColumns, iNoOfRows);
+    printf("\n");
+    
+    /*matrixA input*/
+    printf("Enter into MatrixB\n");
+    getInput(aiMatrixB, &iNoOfColumns, &iNoOfRows);
+
+    /*prints matrix B*/
+    printf("Matrix B [%dx%d]\n", iNoOfRows, iNoOfColumns);
+    getResultantMatrix(aiMatrixB, iNoOfColumns, iNoOfRows);
+    printf("\n");
 
     /*calculates the matrix multiplication*/
+    printf("Resultant Matrix [%dx%d]\n", iNoOfRows, iNoOfColumns);
     getMatrixMultiplication(aiMatrixA, aiMatrixB,aiResultantMatrix, iNoOfColumns, iNoOfRows);
 
     /*prints the resultant matrix*/
@@ -84,3 +139,24 @@ void getResultantMatrix(int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfR
     }
 }
 
+void getInput(int aiMatrix[][N], int *pNoOfColumns, int *pNoOfRows)
+{
+
+    int iRowIndex;
+    int iColumnIndex;
+    int iNoOfRows;
+    int iNoOfColumns;
+
+    iNoOfRows = (*pNoOfRows);
+    iNoOfColumns = (*pNoOfColumns);
+    
+    /*input matrix*/
+    for(iRowIndex = 0; iRowIndex < iNoOfRows; iRowIndex++)
+    {
+        for(iColumnIndex = 0; iColumnIndex < iNoOfColumns; iColumnIndex++)
+        {
+            scanf("%d", &aiMatrix[iRowIndex][iColumnIndex]);
+        }
+    }
+    
+}
