@@ -6,7 +6,7 @@ void main()
 {
     FILE *pSourceFile;  
     FILE *pDestinationFile;
-    int iCharacter;
+    int iCharacter;     // to copy characters from source file to destination
     
     /*stores the address of the file opened*/
     pSourceFile = fopen("file1.txt", "r");
