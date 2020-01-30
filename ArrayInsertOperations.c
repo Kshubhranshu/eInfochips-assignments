@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define N 100   // array max size limit
+#define RED printf("\x1b[31;40m");
+#define RESET printf("\x1b[m");
 
 /*
     * inserts element at the beginning of the array
@@ -65,7 +67,7 @@ int isFull(int iArraySize);
 void main()
 {
     int aiArray[N];
-    int iArraySize = 0;     // counter for counting no of elements currently preseent in arary
+    int iArraySize = 0;     // counter for counting no of elements currently preseent in arary initial count value = 0
     int iElement;           
     int iPosition;          
 
@@ -86,8 +88,11 @@ void main()
         /*validation check if the array is full*/
         if(isFull(iArraySize) &&  1 == iChoice || 2 == iChoice || 3 == iChoice)
         {
+            RED
             printf("Array full cannot insert element!!\n");
-            exit(0);
+            RESET
+
+            break;
         }
 
         switch(iChoice)
