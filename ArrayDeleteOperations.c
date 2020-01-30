@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #define N 100
 #define RED printf("\x1b[31;40m");
-#define RESET printf("\x1b[m");     
+#define RESET printf("\x1b[m");
 
 
 /*
