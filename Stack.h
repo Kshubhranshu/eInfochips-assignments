@@ -1,7 +1,7 @@
 /*Header file for various stack operations*/
 #include <stdio.h>
 #include <stdbool.h>
-#define N
+#define N 100
 
 int aiBuffer[N];  //  stores the stack elements
 int iNextIndex; //  points to the next to the top of the stack
