@@ -1,5 +1,6 @@
 /*Program to swap two nos using xor operator*/
 #include <stdio.h>
+#include <stdlib.h>
 #define MAX 1000
 #define MIN 0
 #pragma message "**OTHER VALUE OTHER THAN INTEGER MAY CAUSE DATA LOSS**"
@@ -12,7 +13,7 @@ void main()
 
     /*input*/
     printf("Enter first number [type: integer][range: %d to %d]: ", MIN, MAX);
-    iFlag = ("%d", &iFirstNumber);
+    iFlag = scanf("%d", &iFirstNumber);
 
     /*validate input*/
     if(0 == iFlag)
@@ -28,7 +29,7 @@ void main()
     
     /*input*/ 
     printf("Enter second number [type: integer][range: %d to %d]: ", MIN, MAX);
-    iFlag = ("%d", &iSecondNumber);
+    iFlag = scanf("%d", &iSecondNumber);
 
     /*validate input*/
     if(0 == iFlag)
