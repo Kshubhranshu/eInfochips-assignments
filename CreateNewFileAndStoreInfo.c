@@ -5,6 +5,10 @@
 #include <string.h>
 #define N 100
 
+char achFileName[] = "new.txt";     // buffer for file name
+
+
+
 /*
     * this methods shows the file usage details
     *
@@ -15,7 +19,6 @@ void getFileUsage();
 void main()
 {
     FILE *pFilePointer;    //    holds the address of file
-    char achFileName[] = "new.txt";     // buffer for file name
     char chChoice;
     char achDataBuffer[N];
 
@@ -74,7 +77,7 @@ void main()
 void getFileUsage()
 {
     printf("File Usage\n");
-    printf("Filename                                               : new.txt\n");
+    printf("Filename                                               : %s\n", achFileName);
     printf("File directory                                         : home/einfochips/Desktop/eInfochips-tasks-master\n");
     printf("\n");
 }
