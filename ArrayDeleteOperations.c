@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define N 100
+#define RED printf("\x1b[31;40m");
+#define RESET printf("\x1b[m");     
+
 
 /*
     * deletes the first element of the array
@@ -81,8 +84,12 @@ void main()
         /*validation check if the array is empty*/
         if(isEmpty(iArraySize) &&  1 == iChoice || 2 == iChoice || 3 == iChoice)
         {
-            printf("Array empty cannot delete!!\n");
-            exit(0);
+            
+            RED
+            printf("Array empty cannot delete anymore!!\n");
+            RESET
+
+            break;
         }
 
         switch(iChoice)
