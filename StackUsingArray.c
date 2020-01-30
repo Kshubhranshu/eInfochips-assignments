@@ -2,11 +2,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Stack.h"
+#define RED printf("\x1b[31;40m");
+#define RESET printf("\x1b[m");
+
 
 void main ()
 {
     int iElement;
-    iCapacity = 5;
+
+    printf("Enter the capacity of stack[max cap: 100] : ");
+    scanf("%d", &iCapacity);
+
+    /*validate capacity*/
+    if(iCapacity > N)
+    {
+        RED
+        printf("Maximum capacity limit exceeded!!!\n");
+        RESET
+        
+        exit(0);
+    }
 
     while(1)
     {   
@@ -43,11 +58,11 @@ void main ()
 
             case 3:
                     /*no of elements in stack*/
-                    printf("No of elements in queue : %d\n", getSizeOfStack());
+                    printf("No of elements in stack : %d\n", getSizeOfStack());
                     break;
 
             case 4:
-                    /*gets the front element of stack*/
+                    /*gets the top of stack*/
                     printf("Top element   : %d\n", getTopOfStack());
                     break;
             
