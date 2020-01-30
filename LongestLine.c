@@ -30,7 +30,10 @@ void main()
     size_t iLengthOfEachLine = 0;   //  stores the length of each line
     int iMaxCharactersLineNumber;   //  stores the line number with maximum characters count
     int iOffsetValue = 0;           
-    int iIndex;     // for iterating over the characters count buffer
+    int iIndex;                     // for iterating over the characters count buffer
+
+    /*file usage information*/
+    getFileUsage();
 
     /*stores the address of the file opened*/
     pFilePointer = fopen("file1.txt", "r");
@@ -41,9 +44,10 @@ void main()
         printf("File doesnot exists!\n");
         exit(0);
     }
-
-    /*file usage information*/
-    getFileUsage();
+    else
+    {
+        printf("File opened successfully \xE2\x9C\x93 \n\n");
+    }
 
     /*counting no of characters per line and storing in aiCharactersCountBuffer*/
     while ((aiCharactersCountBuffer[iLineCount] = getline(&pLineData, &iLengthOfEachLine, pFilePointer)) != -1)
@@ -84,10 +88,12 @@ void main()
 
     /*prints the line having max characters*/
     fgets(pLineData, 256, pFilePointer) != NULL;
-    printf("%s\n", pLineData);
+    printf("Data: %s\n", pLineData);
 
     /*closing file*/
     fclose(pFilePointer);
+    printf("File closed successfully \xE2\x9C\x93 \n\n");
+
 }
 
 int largestElementIndex(int aiArray[], int iSizeOfArray) 
@@ -111,11 +117,10 @@ int largestElementIndex(int aiArray[], int iSizeOfArray)
 void getFileUsage()
 {
     printf("File Usage\n");
-    printf("Max array size limit    : 200\n");
     printf("Max lines limit         : 200\n");
     printf("Max characters per line : 256\n");
-    printf("File input name         : file.txt\n");
-    printf("File directory          : /eInfochips-tasks-master\n");
+    printf("Input filename          : file.txt\n");
+    printf("File directory          : home/einfochips/Desktop/eInfochips-tasks-master\n");
     printf("\n");
 }
 
