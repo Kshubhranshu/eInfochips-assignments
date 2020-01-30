@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#define N 1000
+#include <string.h>
+#define N 100
 
 /*
     * this methods shows the file usage details
@@ -49,11 +50,18 @@ void main()
     }
 
     /*input the data into the data buffer*/
-    printf("------------------------------------------Start Writing[\x1b[31;25m press \x1b[33;50mTab Enter\x1b[m \x1b[31;25mto end writing \x1b[m]------------------------------------------\n");
+    printf("---------------------------Start Writing[\x1b[33;50mmax char capacity: 1000\x1b[m][\x1b[31;25m press \x1b[33;50mTab Enter\x1b[m \x1b[31;25mto end writing \x1b[m]---------------------------\n");
     scanf("%[^\t]", achDataBuffer);
-    printf("------------------------------------------------------------------End--------------------------------------------------------------\n");
+    printf("---------------------------------------------------------------End------------------------------------------------------------\n");
 
-    /*copy data from buffer to filecl*/
+    /*validate input*/
+    if(strlen(achDataBuffer) > (N - 1))
+    {
+        printf("\x1b[31;40mOops! Maximum capacity exceeded!!\x1b[m\n");
+        exit(0);
+    }
+
+    /*copy data from buffer to file*/
     fputs(achDataBuffer, pFilePointer);
     printf("Data written successfully \xE2\x9C\x93 \n\n");
 
