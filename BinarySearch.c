@@ -2,6 +2,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define N 100
+#define RED printf("\x1b[31;40m");
+#define RESET printf("\x1b[m");
 
 /*
     * finds the element in the array
@@ -56,8 +58,18 @@ void main()
     int iValueToSearch; 
     int iBinarySearchResult;    //  stores the index of found element
 
-    printf("Enter the size of array : ");
+    printf("Enter the size of array[max cap: 100] : ");
     scanf("%d", &iSizeOfArray);
+
+    /*validate max array size*/
+    if(iSizeOfArray > N)
+    {
+        RED
+        printf("Maximum capacity limit exceeded!!!\n");
+        RESET
+        
+        exit(0);
+    }
 
     /*input array*/
     printf("Enter %d elements into array\n", iSizeOfArray);
