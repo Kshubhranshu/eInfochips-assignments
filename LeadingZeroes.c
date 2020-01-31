@@ -1,4 +1,6 @@
-/*Program to count the number of leading zeroes*/
+/*
+5.b. Use Bitwise Operations to Count the Number of Leading Zero’s in a Number x.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX 1000
