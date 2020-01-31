@@ -60,7 +60,7 @@ void main()
     printf("**constraint : [nxn] matrix**\n");
 
     /*input rows*/
-    printf("Enter no of rows : ");
+    printf("Enter no of rows    : ");
     scanf("%d", &iNoOfRows);
 
     /*input columns*/
