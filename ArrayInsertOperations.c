@@ -1,4 +1,7 @@
-/*Program to perfrom delete operation on array*/
+/*
+4.a. Make a program to insert an element into array (at beginning, in between or at last)
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #define N 100   // array max size limit
@@ -114,6 +117,14 @@ void main()
                 scanf("%d", &iElement);
                 printf("Enter the position : ");
                 scanf("%d", &iPosition);
+
+                /*validate position*/
+                if((iPosition > iArraySize - 1) || (iPosition < 0))
+                {
+                    printf("Oops! Invalid Position\n");
+                    break;
+                }
+
                 insertInBetween(aiArray, &iArraySize, iPosition, iElement);
                 break;
 
