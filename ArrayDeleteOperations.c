@@ -1,4 +1,6 @@
-/*Program to perfrom insert operation on array*/
+/*
+4.b.   Make a program to delete an element from array (at beginning, in between or at last)
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #define N 100
@@ -107,6 +109,14 @@ void main()
                     /*delete in between*/
                     printf("Enter the position : ");
                     scanf("%d", &iPosition);
+
+                    /*validate position*/
+                    if((iPosition > iArraySize - 1) || (iPosition < 0))
+                    {
+                        printf("Oops! Invalid Position\n");
+                        break;
+                    }
+
                     deleteFromBetween(aiArray, &iArraySize, iPosition);
                     break;
 
