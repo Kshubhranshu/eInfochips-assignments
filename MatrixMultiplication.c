@@ -1,4 +1,7 @@
-/*Program to perform matrix multiplication for matrix nxn*/
+/*
+2. write a function to multiply two metrices nxn and put result in a third matrix, what is order of runtime?
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #define N 100  // maximum size of columns of the matrices
@@ -21,28 +24,28 @@
 void getMatrixMultiplication(int aiMatrixA[][N], int aiMatrixB[][N], int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfRows);
 
 /*
-* prints the resultant matrix
-*
-* @param aiResutantMatrix is the resultant matrix
-*
-* @param iNoOfColumns is the no of columns of the resultant matrix
-*
-* @param iNoOfRows is the no of rows of the resultant matrix
-*
-* @return void
+    * prints the resultant matrix
+    *
+    * @param aiResutantMatrix is the resultant matrix
+    *
+    * @param iNoOfColumns is the no of columns of the resultant matrix
+    *
+    * @param iNoOfRows is the no of rows of the resultant matrix
+    *
+    * @return void
 */
 void getResultantMatrix(int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfRows);
 
 /*
-* takes user input for matrix data
-*
-* @param aiMatrix
-*
-* @param iNoOfColumns is the no of columns of the matrix
-*
-* @param iNoOfRows is the no of rows of the matrix
-*
-* @return void
+    * takes user input for matrix data
+    *
+    * @param aiMatrix
+    *
+    * @param iNoOfColumns is the no of columns of the matrix
+    *
+    * @param iNoOfRows is the no of rows of the matrix
+    *
+    * @return void
 */
 void getInput(int aiMatrix[][N], int *pNoOfColumns, int *pNoOfRows);
 
@@ -57,7 +60,7 @@ void main()
     int aiResultantMatrix[N][N];
 
 
-    printf("**constraint : [nxn] matrix**\n");
+    printf("**constraint : [nxn][max cap: 100x100][type: integer] matrix**\n");
 
     /*input rows*/
     printf("Enter no of rows    : ");
@@ -70,7 +73,7 @@ void main()
     printf("\n");
 
     /*validate matrix*/
-    if((0 == iNoOfRows) && (0 == iNoOfColumns) || (iNoOfColumns != iNoOfRows))
+    if((0 == iNoOfRows) && (0 == iNoOfColumns) || (iNoOfColumns != iNoOfRows) || (iNoOfRows > N) || (iNoOfColumns > N))
     {   
         printf("Invalid inputs dimensions cannot be %dx%d refer constraints!!!\n", iNoOfRows, iNoOfColumns);
         exit(0);
@@ -150,7 +153,7 @@ void getInput(int aiMatrix[][N], int *pNoOfColumns, int *pNoOfRows)
     iNoOfRows = (*pNoOfRows);
     iNoOfColumns = (*pNoOfColumns);
     
-    /*input matrix*/
+    /*input matrix data*/
     for(iRowIndex = 0; iRowIndex < iNoOfRows; iRowIndex++)
     {
         for(iColumnIndex = 0; iColumnIndex < iNoOfColumns; iColumnIndex++)
