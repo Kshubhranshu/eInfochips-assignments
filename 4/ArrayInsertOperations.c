@@ -110,6 +110,9 @@ void main()
 
         case 2:
                 /*insert in between*/
+
+                printf("OOPS!! ENCOUNTERED SOME BUG!!! TRY AFTER SOMETIME");
+
                 printf("Enter the value to insert : ");
                 scanf("%d", &iElement);
                 printf("Enter the position[Relative Index = 0] : ");
