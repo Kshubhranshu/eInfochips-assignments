@@ -47,7 +47,7 @@ void getResultantMatrix(int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfR
     *
     * @return void
 */
-void getInput(int aiMatrix[][N], int *pNoOfColumns, int *pNoOfRows);
+void getInput(int aiMatrix[][N], int iNoOfColumns, int iNoOfRows);
 
 
 
@@ -60,7 +60,7 @@ void main()
     int aiResultantMatrix[N][N];
 
 
-    printf("**constraint : [nxn][max cap: 100x100][type: integer] matrix**\n");
+    printf("**constraint : [dimension: nxn][max cap: %dx%d][type: integer] matrix**\n", N, N);
 
     /*input rows*/
     printf("Enter no of rows    : ");
@@ -81,7 +81,7 @@ void main()
 
     /*matrixA input*/
     printf("Enter into MatrixA\n");
-    getInput(aiMatrixA, &iNoOfColumns, &iNoOfRows);
+    getInput(aiMatrixA, iNoOfColumns, iNoOfRows);
 
     /*prints matrix A*/
     printf("Matrix A [%dx%d]\n", iNoOfRows, iNoOfColumns);
@@ -90,7 +90,7 @@ void main()
     
     /*matrixA input*/
     printf("Enter into MatrixB\n");
-    getInput(aiMatrixB, &iNoOfColumns, &iNoOfRows);
+    getInput(aiMatrixB, iNoOfColumns, iNoOfRows);
 
     /*prints matrix B*/
     printf("Matrix B [%dx%d]\n", iNoOfRows, iNoOfColumns);
@@ -142,16 +142,11 @@ void getResultantMatrix(int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfR
     }
 }
 
-void getInput(int aiMatrix[][N], int *pNoOfColumns, int *pNoOfRows)
+void getInput(int aiMatrix[][N], int iNoOfColumns, int iNoOfRows)
 {
 
     int iRowIndex;
     int iColumnIndex;
-    int iNoOfRows;
-    int iNoOfColumns;
-
-    iNoOfRows = (*pNoOfRows);
-    iNoOfColumns = (*pNoOfColumns);
     
     /*input matrix data*/
     for(iRowIndex = 0; iRowIndex < iNoOfRows; iRowIndex++)

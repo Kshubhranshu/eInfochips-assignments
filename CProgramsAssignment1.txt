@@ -24,6 +24,4 @@ Exercise:
 
 9. Write a C program which prints itself.
 
-10. Make a document which includes all functions related to file operation with syntax and small example.    
-       
-   	
+10. Make a document which includes all functions related to file operation with syntax and small example. 

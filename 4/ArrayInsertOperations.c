@@ -5,8 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define N 100   // array max size limit
-#define RED printf("\x1b[31;40m");
-#define RESET printf("\x1b[m");
+
+int aiArray[N];
+int iArraySize = 0;     // counter for counting no of elements currently preseent in arary initial count value = 0
+
 
 /*
     * inserts element at the beginning of the array
@@ -69,8 +71,6 @@ int isFull(int iArraySize);
 
 void main()
 {
-    int aiArray[N];
-    int iArraySize = 0;     // counter for counting no of elements currently preseent in arary initial count value = 0
     int iElement;           
     int iPosition;          
 
@@ -89,12 +89,9 @@ void main()
         scanf("%d", &iChoice);
 
         /*validation check if the array is full*/
-        if(isFull(iArraySize) &&  1 == iChoice || 2 == iChoice || 3 == iChoice)
+        if(isFull(iArraySize) &&  (1 == iChoice || 2 == iChoice || 3 == iChoice))
         {
-            RED
             printf("Array full cannot insert element!!\n");
-            RESET
-
             break;
         }
 
@@ -115,11 +112,11 @@ void main()
                 /*insert in between*/
                 printf("Enter the value to insert : ");
                 scanf("%d", &iElement);
-                printf("Enter the position : ");
+                printf("Enter the position[Relative Index = 0] : ");
                 scanf("%d", &iPosition);
 
                 /*validate position*/
-                if((iPosition > iArraySize - 1) || (iPosition < 0))
+                if((iPosition < (iArraySize - 1)) || (iPosition < 0))
                 {
                     printf("Oops! Invalid Position\n");
                     break;
@@ -175,7 +172,7 @@ void insertInBetween(int aiArray[], int *pSizePointer, int iPosition, int iEleme
 
     for(iIndex = (iArraySize - 1); iIndex >= iPosition; iIndex--)
     {
-        aiArray[iIndex + 1] = aiArray[iIndex];    
+        aiArray[iIndex] = aiArray[iIndex - 1];    
     }
 
     aiArray[iIndex] = iElement;

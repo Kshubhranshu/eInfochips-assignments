@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+char *achFileName = "file1.txt";
+
 /*
     * this methods shows the file usage details
     *
@@ -19,7 +21,7 @@ void main()
     getFileUsage();
 
     /*stores the address of file opened*/
-    pFilePointer = fopen("file1.txt", "r");
+    pFilePointer = fopen(achFileName, "r");
 
     /*checks whether file exists or not*/
     if(NULL == pFilePointer)
@@ -49,4 +51,12 @@ void main()
     /*closing file*/
     fclose(pFilePointer);
     printf("File closed successfully \xE2\x9C\x93 \n");
+}
+
+void getFileUsage()
+{
+    printf("File Usage\n");
+    printf("Input filename          : %s\n", achFileName);
+    printf("File directory          : home/einfochips/Desktop/eInfochips-tasks-master/7\n");
+    printf("\n");
 }

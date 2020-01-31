@@ -2,6 +2,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+char *achSourceFileName = "file1.txt";
+char *achDestinationFileName = "file2.txt";
+
 
 /*
     * this methods shows the file usage details
@@ -20,7 +23,7 @@ void main()
     getFileUsage();
 
     /*stores the address of the file opened*/
-    pSourceFile = fopen("file1.txt", "r");
+    pSourceFile = fopen(achSourceFileName, "r");
     
     /*checks if file exists or not*/
     if (NULL == pSourceFile)
@@ -34,7 +37,7 @@ void main()
     }
 
     /*stores the address of the file opened*/
-    pDestinationFile = fopen("file2.txt", "w");
+    pDestinationFile = fopen(achDestinationFileName, "w");
     
     /*checks if file exists or not*/
     if (NULL == pDestinationFile)
@@ -66,8 +69,8 @@ void main()
 void getFileUsage()
 {
     printf("File Usage\n");
-    printf("Source filename                                       : file1.txt\n");
-    printf("Destination filename[\x1b[31;23mall previous data will be erased\x1b[m]: file2.txt\n");
-    printf("File directory                                        : home/einfochips/Desktop/eInfochips-tasks-master\n");
+    printf("Source filename                                       : %s\n", achSourceFileName);
+    printf("Destination filename[\x1b[31;23mall previous data will be erased\x1b[m]: %s\n", achDestinationFileName);
+    printf("File directory                                        : home/einfochips/Desktop/eInfochips-tasks-master/8\n");
     printf("\n");
 }

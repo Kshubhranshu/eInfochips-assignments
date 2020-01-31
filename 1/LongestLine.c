@@ -4,8 +4,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#define N 10   // maximum array limit
+#define N 11   // maximum array limit
 #define MAXC 256 // maximum characters per line
+
+char *achFileName = "file1.txt";
+
 
 /*
     * this methods finds the line number with maximum characters
@@ -40,7 +43,7 @@ void main()
     getFileUsage();
 
     /*stores the address of the file opened*/
-    pFilePointer = fopen("file1.txt", "r");
+    pFilePointer = fopen(achFileName, "r");
 
     /*checks whether file exists or not*/
     if(NULL == pFilePointer)
@@ -59,7 +62,7 @@ void main()
         /*validation check for 256 max characters perline*/
         if(aiCharactersCountBuffer[iLineCount] > (MAXC - 1))
         {
-            printf("Max characters limit exceeded [MaxLimit: 256]\n");
+            printf("Max characters limit exceeded [MaxLimit: %d]\n", MAXC);
             exit(0);
         }
         
@@ -85,7 +88,16 @@ void main()
     } 
     
     /*prints the line no and no of characters*/
-    printf("Longest line is line no. %d and its count is %d\n", (iMaxCharactersLineNumber + 1), aiCharactersCountBuffer[iMaxCharactersLineNumber]);
+    if(aiCharactersCountBuffer[0] == -1)
+    {
+        /*if file is empty*/
+        printf("Longest line is line no. %d and its count is %d\n", (iMaxCharactersLineNumber + 1), aiCharactersCountBuffer[iMaxCharactersLineNumber]+1);
+    }
+    else
+    {
+        printf("Longest line is line no. %d and its count is %d\n", (iMaxCharactersLineNumber + 1), aiCharactersCountBuffer[iMaxCharactersLineNumber]);
+    }
+    
      
     /*sets the cursor to the starting of the line having max characters*/
     fseek(pFilePointer, iOffsetValue, SEEK_SET);
@@ -121,10 +133,10 @@ int largestElementIndex(int aiArray[], int iSizeOfArray)
 void getFileUsage()
 {
     printf("File Usage\n");
-    printf("Max lines limit         : 10\n");
-    printf("Max characters per line : 256\n");
-    printf("Input filename          : file1.txt\n");
-    printf("File directory          : home/einfochips/Desktop/eInfochips-tasks-master\n");
+    printf("Max lines limit         : %d\n", N-1);
+    printf("Max characters per line : %d\n", MAXC   );
+    printf("Input filename          : %c\n", achFileName);
+    printf("File directory          : home/einfochips/Desktop/eInfochips-tasks-master/1\n");
     printf("\n");
 }
 

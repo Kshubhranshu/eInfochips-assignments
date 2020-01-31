@@ -61,7 +61,7 @@ void main()
     int iValueToSearch; 
     int iBinarySearchResult;    //  stores the index of found element
 
-    printf("Enter the size of array[max cap: 100] : ");
+    printf("Enter the size of array[max cap: %d] : ", N);
     scanf("%d", &iSizeOfArray);
 
     /*validate max array size*/

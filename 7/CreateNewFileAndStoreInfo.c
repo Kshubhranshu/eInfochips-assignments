@@ -3,12 +3,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#define N 100
+#define N 1000
 
 char achFileName[] = "new.txt";     // buffer for file name
-
-
-
 /*
     * this methods shows the file usage details
     *
@@ -53,7 +50,7 @@ void main()
     }
 
     /*input the data into the data buffer*/
-    printf("---------------------------Start Writing[\x1b[33;50mmax char capacity: 1000\x1b[m][\x1b[31;25m press \x1b[33;50mTab Enter\x1b[m \x1b[31;25mto end writing \x1b[m]---------------------------\n");
+    printf("---------------------------Start Writing[\x1b[33;50mmax char capacity: %d\x1b[m][\x1b[31;25m press \x1b[33;50mTab Enter\x1b[m \x1b[31;25mto end writing \x1b[m]---------------------------\n", N);
     scanf("%[^\t]", achDataBuffer);
     printf("---------------------------------------------------------------End------------------------------------------------------------\n");
 
@@ -78,6 +75,6 @@ void getFileUsage()
 {
     printf("File Usage\n");
     printf("Filename                                               : %s\n", achFileName);
-    printf("File directory                                         : home/einfochips/Desktop/eInfochips-tasks-master\n");
+    printf("File directory                                         : home/einfochips/Desktop/eInfochips-tasks-master/7\n");
     printf("\n");
 }

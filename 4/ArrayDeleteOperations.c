@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define N 100
-#define RED printf("\x1b[31;40m");
-#define RESET printf("\x1b[m");
 
 
 /*
@@ -84,13 +82,9 @@ void main()
         scanf("%d", &iChoice);
 
         /*validation check if the array is empty*/
-        if(isEmpty(iArraySize) &&  1 == iChoice || 2 == iChoice || 3 == iChoice)
+        if(isEmpty(iArraySize) &&  (1 == iChoice || 2 == iChoice || 3 == iChoice))
         {
-            
-            RED
             printf("Array empty cannot delete anymore!!\n");
-            RESET
-
             break;
         }
 
@@ -107,7 +101,7 @@ void main()
 
             case 2:
                     /*delete in between*/
-                    printf("Enter the position : ");
+                    printf("Enter the position[Relative Index = 0] : ");
                     scanf("%d", &iPosition);
 
                     /*validate position*/

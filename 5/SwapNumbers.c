@@ -1,4 +1,7 @@
-/*Program to swap two nos using xor operator*/
+/*
+5.a. Swap two numbers using bitwise operators.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX 1000
@@ -49,6 +52,6 @@ void main()
     iFirstNumber = iFirstNumber ^ iSecondNumber;
 
     /*print swapped value*/
-    printf("First integer swapped value : %d\n", iFirstNumber);
+    printf("First integer swapped value  : %d\n", iFirstNumber);
     printf("Second integer swapped value : %d\n", iSecondNumber);
 }
