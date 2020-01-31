@@ -110,8 +110,8 @@ void main()
 
         case 2:
                 /*insert in between*/
-                
-                printf("OOPS!! ENCOUNTERED SOME BUG!!! TRY AFTER SOMETIME");
+
+                printf("\x1b[31;25m OOPS!! ENCOUNTERED SOME BUG!!! TRY AFTER SOMETIME \x1b[33;50m \n");
                 exit(0);
 
                 printf("Enter the value to insert : ");
