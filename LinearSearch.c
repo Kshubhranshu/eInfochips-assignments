@@ -1,4 +1,7 @@
-/*Program for linear search*/
+/*
+3.a. Program for linear search using array
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 
