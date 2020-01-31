@@ -1,4 +1,7 @@
-/*Program for Binary Search*/
+/*
+3.b. Program for Binary Search using Array
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 #define N 100
