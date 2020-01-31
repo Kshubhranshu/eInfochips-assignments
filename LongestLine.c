@@ -1,7 +1,11 @@
-/*Program to find the longest line in a file*/
+/*
+1. Write a program to find and print the longest line for a fixedinput set of 10 lines having a max of 256 characters in a line.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
-#define N 200   // maximum array limit
+#define N 10   // maximum array limit
+#define MAXC 256 // maximum characters per line
 
 /*
     * this methods finds the line number with maximum characters
@@ -53,7 +57,7 @@ void main()
     while ((aiCharactersCountBuffer[iLineCount] = getline(&pLineData, &iLengthOfEachLine, pFilePointer)) != -1)
     {
         /*validation check for 256 max characters perline*/
-        if(aiCharactersCountBuffer[iLineCount] > 255)
+        if(aiCharactersCountBuffer[iLineCount] > (MAXC - 1))
         {
             printf("Max characters limit exceeded [MaxLimit: 256]\n");
             exit(0);
@@ -65,7 +69,7 @@ void main()
     
 
     /*validation for line number maximum limit*/
-    if(iLineCount > 199)
+    if(iLineCount > (N - 1))
     {
         printf("Maximum line limit exceeded!!!\n");
         exit(0);
@@ -87,7 +91,7 @@ void main()
     fseek(pFilePointer, iOffsetValue, SEEK_SET);
 
     /*prints the line having max characters*/
-    fgets(pLineData, 256, pFilePointer) != NULL;
+    fgets(pLineData, MAXC, pFilePointer) != NULL;
     printf("Data: %s\n", pLineData);
 
     /*closing file*/
@@ -117,9 +121,9 @@ int largestElementIndex(int aiArray[], int iSizeOfArray)
 void getFileUsage()
 {
     printf("File Usage\n");
-    printf("Max lines limit         : 200\n");
+    printf("Max lines limit         : 10\n");
     printf("Max characters per line : 256\n");
-    printf("Input filename          : file.txt\n");
+    printf("Input filename          : file1.txt\n");
     printf("File directory          : home/einfochips/Desktop/eInfochips-tasks-master\n");
     printf("\n");
 }
