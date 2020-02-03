@@ -1,27 +1,30 @@
-/*Program to create a new file and write in it*/
+/*
+C program to create a file and store information.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
 #define N 1000
 
-char achFileName[] = "new.txt";     // buffer for file name
 /*
     * this methods shows the file usage details
     *
     * @return void
 */
-void getFileUsage();
+void getFileUsage(char achFileName[]);
 
 void main()
 {
     FILE *pFilePointer;    //    holds the address of file
     char chChoice;
     char achDataBuffer[N];
+    char achFileName[] = "new.txt";     // buffer for file name
 
 
     /*file usage information*/
-    getFileUsage();
+    getFileUsage(achFileName);
 
     /*validate if the file with same name already exist*/
     if( access(achFileName , F_OK ) != -1 )
@@ -71,7 +74,7 @@ void main()
     
 }
 
-void getFileUsage()
+void getFileUsage(char achFileName[])
 {
     printf("File Usage\n");
     printf("Filename                                               : %s\n", achFileName);
