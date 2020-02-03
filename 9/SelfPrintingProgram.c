@@ -18,7 +18,7 @@ void main()
     }
     else
     {   
-        
+    
         /*reads each character from the file and prints it on the console*/
         printf("File opened successfully \xE2\x9C\x93 \n\n");
         printf("\n---Source code starts---\n\n");
@@ -26,12 +26,12 @@ void main()
         {
         chCharacter= fgetc(pFilePointer);
 
-        /**/
         if(chCharacter == EOF)
         {
             break;
         }
 
+        /*prints each character from file on the console*/
         putchar(chCharacter);
         } while (chCharacter != EOF);
         printf("\n\n");
@@ -40,5 +40,5 @@ void main()
 
     /*closing file*/
     fclose(pFilePointer);
-    printf("File closed successfully \xE2\x9C\x93 \n\n");
+    printf("File closed successfully \xE2\x9C\x93 \n\n");   
 }  
