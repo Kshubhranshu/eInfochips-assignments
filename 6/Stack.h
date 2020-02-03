@@ -1,6 +1,5 @@
 /*Header file for various stack operations*/
 #include <stdio.h>
-#include <stdbool.h>
 #define N 100
 
 int aiBuffer[N];  //  stores the stack elements
@@ -19,7 +18,7 @@ int getSizeOfStack();
     *
     * @return boolean
 */
-bool isStackEmpty();
+int isStackEmpty();
 
 /*
     * adds elements at the top of the stack
@@ -58,15 +57,15 @@ int getSizeOfStack()
     return iNextIndex;
 }
 
-bool isStackEmpty()
+int isStackEmpty()
 {
     if (0 == iNextIndex)
     {
-        return true;
+        return 1;
     }
     else
     {
-        return false;
+        return 0;
     }
 }
 
