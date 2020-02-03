@@ -2,25 +2,23 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-char *achSourceFileName = "file1.txt";
-char *achDestinationFileName = "file2.txt";
-
-
 /*
     * this methods shows the file usage details
     *
     * @return void
 */
-void getFileUsage();
+void getFileUsage(char achSourceFile[], char achDestinationFile[]);
 
 void main()
 {
     FILE *pSourceFile; 
     FILE *pDestinationFile;
     int iCharacter;     // to copy characters from source file to destination
+    char *achSourceFileName = "file1.txt";
+    char *achDestinationFileName = "file2.txt";
 
     /*file usage information*/
-    getFileUsage();
+    getFileUsage(achSourceFileName, achDestinationFileName);
 
     /*stores the address of the file opened*/
     pSourceFile = fopen(achSourceFileName, "r");
@@ -28,7 +26,7 @@ void main()
     /*checks if file exists or not*/
     if (NULL == pSourceFile)
     {
-        printf("Cannot open file\n");
+        printf("File failed to open!!\n");
         exit(0);
     }
     else
@@ -42,7 +40,7 @@ void main()
     /*checks if file exists or not*/
     if (NULL == pDestinationFile)
     {
-        printf("Cannot open file\n");
+        printf("File failed to open\n");
         exit(0);
     }
     else
@@ -63,10 +61,9 @@ void main()
 
     fclose(pDestinationFile);
     printf("Destination file closed successfully \xE2\x9C\x93 \n\n");
-
 }
 
-void getFileUsage()
+void getFileUsage(char achSourceFileName[], char achDestinationFileName[])
 {
     printf("File Usage\n");
     printf("Source filename                                       : %s\n", achSourceFileName);
