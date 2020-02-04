@@ -1,0 +1,81 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+MAX	5/LeadingZeroes.c	6;"	d	file:
+MAX	5/SwapNumbers.c	7;"	d	file:
+MAXC	1/LongestLine.c	8;"	d	file:
+MIN	5/LeadingZeroes.c	7;"	d	file:
+MIN	5/SwapNumbers.c	8;"	d	file:
+N	1/LongestLine.c	7;"	d	file:
+N	2/MatrixMultiplication.c	7;"	d	file:
+N	3/BinarySearch.c	7;"	d	file:
+N	4/ArrayDeleteOperations.c	6;"	d	file:
+N	4/ArrayInsertOperations.c	7;"	d	file:
+N	6/Stack.h	3;"	d
+N	7/CreateNewFileAndStoreInfo.c	9;"	d	file:
+RED	3/BinarySearch.c	8;"	d	file:
+RED	6/StackUsingArray.c	5;"	d	file:
+RESET	3/BinarySearch.c	9;"	d	file:
+RESET	6/StackUsingArray.c	6;"	d	file:
+achFileName	1/LongestLine.c	/^char *achFileName = "file1.txt";$/;"	v
+aiArray	4/ArrayInsertOperations.c	/^int aiArray[N];$/;"	v
+aiBuffer	6/Stack.h	/^int aiBuffer[N];  \/\/  stores the stack elements$/;"	v
+aiQueueData	6/QueueOperations.c	/^int aiQueueData[10];    \/\/  queue for storing values$/;"	v
+binarySearch	3/BinarySearch.c	/^int binarySearch(int aiArray[], int iSizeOfArray, int iValueToSearch)$/;"	f
+deleteFromBetween	4/ArrayDeleteOperations.c	/^void deleteFromBetween(int aiArray[], int *pSizePtr, int iPosition)$/;"	f
+deleteFromEnd	4/ArrayDeleteOperations.c	/^void deleteFromEnd(int aiArray[], int *pSizePtr)$/;"	f
+deleteFromStart	4/ArrayDeleteOperations.c	/^void deleteFromStart(int aiArray[], int *pSizePtr)$/;"	f
+dequeue	6/QueueOperations.c	/^int dequeue()$/;"	f
+enqueue	6/QueueOperations.c	/^void enqueue(int iElement)$/;"	f
+getFileUsage	1/LongestLine.c	/^void getFileUsage()$/;"	f
+getFileUsage	7/CreateNewFileAndStoreInfo.c	/^void getFileUsage(char achFileName[])$/;"	f
+getFileUsage	7/NoOfLinesInFile.c	/^void getFileUsage(char achFileName[])$/;"	f
+getFileUsage	8/CopyFiles.c	/^void getFileUsage(char achSourceFileName[], char achDestinationFileName[])$/;"	f
+getFrontElement	6/QueueOperations.c	/^int getFrontElement()$/;"	f
+getInput	2/MatrixMultiplication.c	/^void getInput(int aiMatrix[][N], int iNoOfColumns, int iNoOfRows)$/;"	f
+getInput	3/BinarySearch.c	/^void getInput(int aiArray[], int iSizeOfArray)$/;"	f
+getMatrixMultiplication	2/MatrixMultiplication.c	/^void getMatrixMultiplication(int aiMatrixA[][N], int aiMatrixB[][N], int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfRows)$/;"	f
+getResultantMatrix	2/MatrixMultiplication.c	/^void getResultantMatrix(int aiResultantMatrix[][N], int iNoOfColumns, int iNoOfRows)$/;"	f
+getSize	6/QueueOperations.c	/^int getSize()$/;"	f
+getSizeOfStack	6/Stack.h	/^int getSizeOfStack()$/;"	f
+getTopOfStack	6/Stack.h	/^int getTopOfStack()$/;"	f
+iArraySize	4/ArrayInsertOperations.c	/^int iArraySize = 0;     \/\/ counter for counting no of elements currently preseent in arary initial count value = 0$/;"	v
+iCapacity	6/Stack.h	/^int iCapacity;  \/\/  stores the total capacity of stack$/;"	v
+iFirstIndex	6/QueueOperations.c	/^int iFirstIndex = - 1;  \/\/  stores the front of the queue$/;"	v
+iMaxCapacity	6/QueueOperations.c	/^int iMaxCapacity;       \/\/  maximum capacity of queue$/;"	v
+iNextIndex	6/QueueOperations.c	/^int iNextIndex = 0;     \/\/  stores the rear of the queue$/;"	v
+iNextIndex	6/Stack.h	/^int iNextIndex; \/\/  points to the next to the top of the stack$/;"	v
+iSize	6/QueueOperations.c	/^int iSize = 0;          \/\/  stores the no of element present in queue$/;"	v
+insertAtBeginning	4/ArrayInsertOperations.c	/^void insertAtBeginning(int aiArray[], int *pSizePointer, int iElement)$/;"	f
+insertAtEnd	4/ArrayInsertOperations.c	/^void insertAtEnd(int aiArray[], int *pSizePointer, int iElement)$/;"	f
+insertInBetween	4/ArrayInsertOperations.c	/^void insertInBetween(int aiArray[], int *pSizePointer, int iPosition, int iElement)$/;"	f
+isEmpty	4/ArrayDeleteOperations.c	/^int isEmpty(int iArraySize)$/;"	f
+isEmpty	6/QueueOperations.c	/^bool isEmpty()$/;"	f
+isFull	4/ArrayInsertOperations.c	/^int isFull(int iArraySize)$/;"	f
+isStackEmpty	6/Stack.h	/^int isStackEmpty()$/;"	f
+largestElementIndex	1/LongestLine.c	/^int largestElementIndex(int aiArray[], int iSizeOfArray) $/;"	f
+main	1/LongestLine.c	/^void main()$/;"	f
+main	2/MatrixMultiplication.c	/^void main()$/;"	f
+main	3/BinarySearch.c	/^void main()$/;"	f
+main	3/LinearSearch.c	/^void main()$/;"	f
+main	4/ArrayDeleteOperations.c	/^void main()$/;"	f
+main	4/ArrayInsertOperations.c	/^void main()$/;"	f
+main	5/LeadingZeroes.c	/^void main()$/;"	f
+main	5/SwapNumbers.c	/^void main()$/;"	f
+main	6/QueueOperations.c	/^void main()$/;"	f
+main	6/StackUsingArray.c	/^void main ()$/;"	f
+main	7/CreateNewFileAndStoreInfo.c	/^void main()$/;"	f
+main	7/NoOfLinesInFile.c	/^void main()$/;"	f
+main	8/CopyFiles.c	/^void main()$/;"	f
+main	9/SelfPrintingProgram.c	/^void main() $/;"	f
+pop	6/Stack.h	/^int pop()$/;"	f
+printArray	3/BinarySearch.c	/^void printArray(int aiArray[], int iSizeOfArray)$/;"	f
+printArray	4/ArrayDeleteOperations.c	/^void printArray(int aiArray[], int *pSizePointer)$/;"	f
+printArray	4/ArrayInsertOperations.c	/^void printArray(int aiArray[], int *pSizePointer)$/;"	f
+printQueue	6/QueueOperations.c	/^void printQueue()$/;"	f
+printStack	6/Stack.h	/^void printStack()$/;"	f
+push	6/Stack.h	/^void push(int iElement)$/;"	f
+sortArray	3/BinarySearch.c	/^void sortArray(int aiArray[], int iSizeOfArray)$/;"	f

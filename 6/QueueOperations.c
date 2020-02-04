@@ -73,6 +73,12 @@ void main()
         printf("Make a selection    : ");
         scanf("%d", &iChoice);
 
+		if((iSize == iMaxCapacity) && iChoice == 1)
+		{
+			printf("Queue full, cannot insert more elements\n");
+			break;
+		}
+
         switch(iChoice)
         {
             case 0:
@@ -182,6 +188,7 @@ int dequeue()
 void printQueue()
 {
     int iIndex;
+	printf("front index %d and last index %d\n", iFirstIndex, iNextIndex);
 
     if(isEmpty())
     {
@@ -190,11 +197,15 @@ void printQueue()
     }
     else
     {
-        for(iIndex = iFirstIndex; iIndex < iMaxCapacity; iIndex++)
-        {
-            printf("[%d]", aiQueueData[iIndex]);
-        }
-    }
+			for(iIndex = iFirstIndex; iIndex < iSize; iIndex++)
+			{
+				printf("[%d]", aiQueueData[iIndex]);
+			}
 
+			for(iIndex = 0; iIndex < iFirstIndex; iIndex++)
+			{
+				printf("[%d]", aiQueueData[iIndex]);
+			}
+    }
     printf("\n");
 }
