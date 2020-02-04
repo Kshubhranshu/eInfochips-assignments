@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#define N 11   // maximum array limit
+#define N 10   // maximum array limit
 #define MAXC 256 // maximum characters per line
 
 char *achFileName = "file1.txt";
@@ -73,6 +73,7 @@ void main()
 
     /*validation for line number maximum limit*/
     if(iLineCount > (N - 1))
+
     {
         printf("Maximum line limit exceeded!!!\n");
         exit(0);
@@ -133,9 +134,9 @@ int largestElementIndex(int aiArray[], int iSizeOfArray)
 void getFileUsage()
 {
     printf("File Usage\n");
-    printf("Max lines limit         : %d\n", N-1);
+    printf("Max lines limit         : %d\n", N);
     printf("Max characters per line : %d\n", MAXC   );
-    printf("Input filename          : %c\n", achFileName);
+    printf("Input filename          : %s\n", achFileName);
     printf("File directory          : home/einfochips/Desktop/eInfochips-tasks-master/1\n");
     printf("\n");
 }
