@@ -7,7 +7,6 @@
 #define MIN 0
 #pragma message "**OTHER VALUE OTHER THAN INTEGER MAY CAUSE DATA LOSS**"
 
-
 void main()
 {
     int iHighestSetBit;     //  stores the position of highest set bit
