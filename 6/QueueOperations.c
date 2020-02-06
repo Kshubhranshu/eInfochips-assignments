@@ -1,12 +1,13 @@
 /*Program to perform various queue operations*/
 #include <stdio.h>
-#include <stdbool.h>
 #include <stdlib.h>
+#define N 100
 
-int aiQueueData[10];    //  queue for storing values
+/*will make sure to not use global variables from next time*/
+int aiQueueData[N];    //  queue for storing values
 int iNextIndex = 0;     //  stores the rear of the queue
 int iFirstIndex = - 1;  //  stores the front of the queue
-int iSize = 0;          //  stores the no of element present in queue
+int iSize = 0;          //  stores the no of elements present in queue currently
 int iMaxCapacity;       //  maximum capacity of queue
 
 /*
@@ -21,7 +22,8 @@ int getSize();
     *
     * @return boolean
 */
-bool isEmpty();
+
+int isEmpty();
 
 /*
     * adds new element in the queue at from the end
@@ -72,7 +74,8 @@ void main()
         printf("0. Exit\n");
         printf("Make a selection    : ");
         scanf("%d", &iChoice);
-
+		
+		/*check whether the queue max limit reached*/
 		if((iSize == iMaxCapacity) && iChoice == 1)
 		{
 			printf("Queue full, cannot insert more elements\n");
@@ -94,6 +97,11 @@ void main()
 
             case 2:
                     /*dequeue*/
+					if(dequeue() == 0)
+					{
+						dequeue();
+						break;
+					}
                     printf("%d deleted\n", dequeue());
                     break;
 
@@ -104,6 +112,11 @@ void main()
 
             case 4:
                     /*gets the front element of queue*/
+					if(getFrontElement() == 0)
+					{
+						getFrontElement();
+						break;
+					}
                     printf("Front element   : %d\n", getFrontElement());
                     break;
             
@@ -125,15 +138,15 @@ int getSize()
     return iSize;
 }
 
-bool isEmpty()
+int isEmpty()
 {
     if(iSize == 0)
     {
-        return true;
+        return 1;
     }
     else
     {
-        return false;
+        return 0;
     }
 }
 
@@ -188,7 +201,6 @@ int dequeue()
 void printQueue()
 {
     int iIndex;
-	printf("front index %d and last index %d\n", iFirstIndex, iNextIndex);
 
     if(isEmpty())
     {
