@@ -5,63 +5,55 @@
 #include <iostream>
 #include <cstdlib>
 using namespace std;
+#define MAX 20
+#define MIN 0
 
 /*
-    * this methods prints the factorial of a number, but the parameter is pass by pointer
+    * this methods prints the factorial of a number, but the parameter is pass by pointer to variable
     *
     * @param pNumber is a pointer to variable
     *
-    * @return int
+    * @return long int
 */
-int getFactorialPtr(int *pNumber);
+unsigned long int getFactorialPtr(int *pNumber);
 
 /*
-    * this methods returns the factorial of a number, but the parameter is pass by reference
+    * this methods returns the factorial of a number, but the parameter is pass by reference to variable
     *
     * @param rNumber is a reference to variable 
     *
-    * @return int
+    * @return long int
 */
-int getFactorialRef(int &rNumber);
+unsigned long int getFactorialRef(int &rNumber);
 
 int main()
 {
 	int iNumber;
-	long int iFactorialResult;
+	unsigned long int iFactorialResult;
 
-	cout << "Enter a number[input: pointer to variable]: ";
+	printf("Enter the number [range: %d - %d]: ", MIN, MAX);	
 	cin >> iNumber;
 
-	/*validate input*/
-	if(iNumber < 0)
+	/*validate negative input*/
+	if(iNumber < MIN || iNumber > MAX)
 	{
-		cout << "Input invalid! Number can't be negative" << endl;
+		cout << "Input invalid! Number out of range!!" << endl;
 		exit(EXIT_SUCCESS);
 	}
 
-	/*function call by pointer*/
-	iFactorialResult = getFactorialPtr(&iNumber);
-	cout << "Factorial of " << iNumber << " = " << iFactorialResult << endl;
+	/*function call by pointer to variable*/
+	iFactorialResult = getFactorialPtr(&iNumber);			
+	cout << "Factorial of " << iNumber << " [param: pointer to variable]" << "   = " << iFactorialResult << endl;
 
-	cout << "Enter a number[input: reference to variable]: ";
-	cin >> iNumber;
-	
-	/*validate input*/
-	if(iNumber < 0)
-	{	
-		cout << "Input invalid! Number can't be negative" << endl;
-		exit(EXIT_SUCCESS);
-	}
-
-	/*function call by reference*/
+	/*function call by reference to variable*/
 	iFactorialResult = getFactorialRef(iNumber);
-	cout << "Factorial" << iNumber << " = " << iFactorialResult << endl;
+	cout << "Factorial of " << iNumber << " [param: reference to variable]" << " = " << iFactorialResult << endl;
 
 }
 
-int getFactorialPtr(int *pNumber)
+unsigned long int getFactorialPtr(int *pNumber)
 {
-	long int iFactorialResult = 1;
+	unsigned long int iFactorialResult = 1;
 	int iNumber = (*pNumber);
 
 	/*factorial calcultaion*/
@@ -77,19 +69,20 @@ int getFactorialPtr(int *pNumber)
 	}
 }
 
-int getFactorialRef(int &rNumber)
+unsigned long int getFactorialRef(int &rNumber)
 {
-	long int iFactorialResult = 1;
+	unsigned long int iFactorialResult = 1;
+	int iNumber = rNumber;
 
 	/*factorial calculation*/	
-	while(rNumber)
+	while(iNumber)
 	{
-		if(rNumber < 1)
+		if(iNumber < 1)
 		{
 			return iFactorialResult;
 		}
 
-		iFactorialResult *= rNumber;
-		rNumber--;
+		iFactorialResult *= iNumber;
+		iNumber--;
 	}
 } 
