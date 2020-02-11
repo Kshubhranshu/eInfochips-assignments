@@ -3,7 +3,8 @@
 int main()
 {
 
-	/*code*/	
+	/*code*/
+        push(10);	
 
 return 0;
 }

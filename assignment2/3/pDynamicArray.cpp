@@ -1,3 +1,8 @@
+/*
+3. Use InsertDataIn2DArray function which accept NxN Alphanumeric data from user. Use Sort2DArray function to sort 2D array in ascending order.
+Note: use pass by pointer and dynamic memory allocation. Use pass by reference and fixed size of 2D array.
+*/
+
 #include <cstring>
 #include <cctype>
 #include <iostream>
@@ -6,7 +11,7 @@ using namespace std;
 /*
 	* this method takes the input from the user
 	*
-	* @param pBufferPointer is the pointer to char array
+	* @param pBufferPointer is the pointer to pointer to char array
 	*
 	* @param iSize stores the size of the buffer 
 	*
@@ -17,7 +22,7 @@ void insertData(char **pBufferPointer, int iSize);
 /*
 	* this mehtod prints the buffer
 	*
-	* @param pBufferPointer is the pointer to the char array
+	* @param pBufferPointer is the pointer to pointer to the char array
 	*
 	* @param iSize stores the size of the array
 	*
@@ -67,7 +72,7 @@ int main()
 	cout << endl;
 
 	/*prints the original buffer*/
-	printf("Original Data Buffer\n", iSize, iSize);
+	printf("Original Data Buffer\n");
 	printData(pBufferPointer, iSize);
 	cout << endl;
 
@@ -75,9 +80,18 @@ int main()
 	sortBuffer(pBufferPointer, iSize);
 
 	/*prints sorted data buffer*/
-	printf("Sorted Data Buffer\n", iSize, iSize);
+	printf("Sorted Data Buffer\n");
 	printData(pBufferPointer, iSize);
 	cout << endl;
+
+	/*free sub buffer*/
+	for(iIndex = 0; iIndex < iSize; iIndex++)
+	{
+		delete[] pBufferPointer[iIndex];
+	}
+
+	/*free buffer pointer*/
+	delete[] pBufferPointer;
 }
 
 void insertData(char **pBufferPointer, int iSize)
@@ -123,7 +137,7 @@ void sortBuffer(char **pBufferPointer, int iSize)
 {
 	int iIndexI;
 	int iIndexJ;
-	char *pTemp;
+	char *pTempBuffer;
 
 	/*sorting operation*/
     for(iIndexI = 0; iIndexI < iSize - 1; iIndexI++)
@@ -132,10 +146,10 @@ void sortBuffer(char **pBufferPointer, int iSize)
 		{
 			if(strcmp(pBufferPointer[iIndexJ], pBufferPointer[iIndexJ + 1]) > 0)
 			{
-				pTemp = new char[iSize];
-				strcpy(pTemp, pBufferPointer[iIndexJ]);
+				pTempBuffer = new char[iSize];
+				strcpy(pTempBuffer, pBufferPointer[iIndexJ]);
 				strcpy(pBufferPointer[iIndexJ], pBufferPointer[iIndexJ + 1]);
-				strcpy(pBufferPointer[iIndexJ + 1], pTemp);
+				strcpy(pBufferPointer[iIndexJ + 1], pTempBuffer);
 			}
 		}
 	}
