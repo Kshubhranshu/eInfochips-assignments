@@ -62,12 +62,12 @@ int main()
 	}
 
 	/*user input*/
-	printf("Enter data into Buffer [dim: %d x %d][type: alphanumeric]\n", iSize, iSize);
+	printf("Enter data into Buffer [dim: %d x %d][type: alphanumeric][max characters: %d + 1('\\0'null char)]\n", iSize, iSize, iSize - 1);
 	insertData(pBufferPointer, iSize);
 	cout << endl;
 
 	/*prints the original buffer*/
-	printf("Original Data Buffer [%d x %d]\n", iSize, iSize);
+	printf("Original Data Buffer\n", iSize, iSize);
 	printData(pBufferPointer, iSize);
 	cout << endl;
 
@@ -75,7 +75,7 @@ int main()
 	sortBuffer(pBufferPointer, iSize);
 
 	/*prints sorted data buffer*/
-	printf("Sorted Data Buffer [%d x %d]\n", iSize, iSize);
+	printf("Sorted Data Buffer\n", iSize, iSize);
 	printData(pBufferPointer, iSize);
 	cout << endl;
 }
@@ -86,7 +86,7 @@ void insertData(char **pBufferPointer, int iSize)
 
 	for(iIndex = 0; iIndex < iSize; iIndex++)
 	{
-		int iTempIndex;
+		int iTempIndex = 0;
 		cin >> pBufferPointer[iIndex];
 
 		/*validate characters count*/
@@ -97,18 +97,15 @@ void insertData(char **pBufferPointer, int iSize)
 		}
 
 		/*validate alphanumeric input*/
-		//currently working here
-		/*
-		while(pBufferPointer[iTempIndex])
+		while(pBufferPointer[iIndex][iTempIndex])
 		{
-			if(!(isalnum(pBufferPointer[iTempIndex])))
+			if(!(isalnum(pBufferPointer[iIndex][iTempIndex])))
 			{
 				cout << "Invalid Character type! Not an alphanumberic character!" << endl;
 				exit(EXIT_SUCCESS);
 			}
 			iTempIndex++;
 		}
-		*/
 	}
 }
 
@@ -126,19 +123,19 @@ void sortBuffer(char **pBufferPointer, int iSize)
 {
 	int iIndexI;
 	int iIndexJ;
+	char *pTemp;
 
 	/*sorting operation*/
-	for(iIndexI = 0; iIndexI < (iSize - 1); iIndexI++)
+    for(iIndexI = 0; iIndexI < iSize - 1; iIndexI++)
 	{
-		for(iIndexJ = 0; iIndexJ < (iSize - iIndexJ - 1); iIndexJ++)
+		for(iIndexJ = 0; iIndexJ < iSize - iIndexI - 1; iIndexJ++)
 		{
 			if(strcmp(pBufferPointer[iIndexJ], pBufferPointer[iIndexJ + 1]) > 0)
 			{
-				/*swapping*/
-				char *pTempBufferPointer = new char[iSize];
-				strcpy(pTempBufferPointer, pBufferPointer[iIndexJ]);
+				pTemp = new char[iSize];
+				strcpy(pTemp, pBufferPointer[iIndexJ]);
 				strcpy(pBufferPointer[iIndexJ], pBufferPointer[iIndexJ + 1]);
-				strcpy(pBufferPointer[iIndexJ], pTempBufferPointer);
+				strcpy(pBufferPointer[iIndexJ + 1], pTemp);
 			}
 		}
 	}
