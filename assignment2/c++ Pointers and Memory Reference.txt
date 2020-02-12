@@ -1,0 +1,63 @@
+void pointer
+wild pointer
+null pointer
+Dangling pointer
+https://www.geeksforgeeks.org/dangling-void-null-wild-pointers/
+
+pointer to const - You cannot change the value pointed by ptr, but you can change the pointer itself
+const pointer - You cannot change the pointer, but can change the value pointed by ptr
+const pointer to const - You can neither change the value pointed by ptr nor the pointer ptr
+https://www.geeksforgeeks.org/difference-between-const-int-const-int-const-and-int-const/
+
+pointer to element of array
+pointer to array
+Pointer to pointers
+array of pointer
+https://www.geeksforgeeks.org/pointer-array-array-pointer/
+https://www.geeksforgeeks.org/difference-between-pointer-to-an-array-and-array-of-pointers/
+https://www.geeksforgeeks.org/dynamically-allocate-2d-array-c/
+
+pointer to function
+https://www.geeksforgeeks.org/function-pointer-in-c/
+
+this pointer
+https://www.geeksforgeeks.org/this-pointer-in-c/
+
+========================================================================================================
+Reference
+lvalue and rvalue reference
+https://en.cppreference.com/w/cpp/language/reference
+https://www.geeksforgeeks.org/reference-to-a-pointer-in-c-with-examples-and-applications/
+
+References to functions
+https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zos.v2r3.cbclx01/cplr242.htm
+
+The following types of references are invalid:
+    References to NULL
+    References to void
+    References to invalid objects or functions
+    References to bit fields
+    References to references C++11except with reference collapsing. See Reference collapsing (C++11) for more information.C++11
+
+You also cannot declare arrays of references, pointers to references, and cv-qualifiers on references. If cv-qualifiers are introduced through a typedef or template argument deduction, the cv-qualifiers are ignored.
+
+========================================================================================================
+References vs Pointers
+Both references and pointers can be used to change local variables of one function inside another function. Both of them can also be used to save copying of big objects when passed as arguments to functions or returned from functions, to get efficiency gain.
+There are following differences between references and pointers.
+
+A pointer can be declared as void but a reference can never be void
+For example
+int a = 10;
+void* aa = &a;. //it is valid
+void &ar = a; // it is not valid
+
+References are less powerful than pointers
+1) Once a reference is created, it cannot be later made to reference another object; it cannot be reseated. This is often done with pointers.
+2) References cannot be NULL. Pointers are often made NULL to indicate that they are not pointing to any valid thing.
+3) A reference must be initialized when declared. There is no such restriction with pointers
+
+
+References are safer and easier to use:
+1) Safer: Since references must be initialized, wild references like wild pointers are unlikely to exist. It is still possible to have references that don’t refer to a valid location 
+2) Easier to use: References don’t need dereferencing operator to access the value. They can be used like normal variables. ‘&’ operator is needed only at the time of declaration. Also, members of an object reference can be accessed with dot operator (‘.’), unlike pointers where arrow operator (->) is needed to access members.
