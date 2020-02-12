@@ -33,7 +33,9 @@ char * strncat(char *pDestination, const char *pSource, int iN);
 	*
 	* @return int
 */
-int strncat(char *pDestination, const char *pSource, int iN);
+int strncmp(const char *pString1, const char *pString2, int iN);
+
+/*****************************************************************************************************************************/
 
 char * strncpy(char *pDestination, const char *pSource, int iN)
 {
@@ -47,7 +49,7 @@ char * strncpy(char *pDestination, const char *pSource, int iN)
 	/*adds null char at the end*/
 	for ( ; iIndex < iN; iIndex++)
 	{
-		
+		pDestination[iIndex] = '\0';	
 	}
 
 	return pDestination;
@@ -67,6 +69,16 @@ char * strncat(char *pDestination, const char *pSource, int iN)
 	return pDestination;
 }
 
-//you left at strncmp 
+int strncmp(const char *pString1, const char *pString2, int iN)
+{
+	while(iN--)
+	{
+		if(*pString1++ != *pString2++)
+		{
+			return (*(--pString1) - *(--pString2));
+		}
+	}
+}
+
 
 
