@@ -78,6 +78,7 @@ int strncmp(const char *pString1, const char *pString2, int iN)
 			return (*(--pString1) - *(--pString2));
 		}
 	}
+	return 0;
 }
 
 
