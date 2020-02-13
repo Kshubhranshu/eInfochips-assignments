@@ -48,25 +48,25 @@ int main()
 	int iSize;
 	char achBuffer[N][N];
 
-	cout << "Enter the size of bufffer [max buffer limit: N]: ";
-	cin >> iSize;
+	std :: cout << "Enter the size of bufffer [max buffer limit: N]: ";
+	std :: cin >> iSize;
 
 	/*validate buffer max size*/
 	if(iSize > N)
 	{
-		cout << "Exceeded buffer limit!!!" << endl;
-		exit(EXIT_SUCCESS);
+		std :: cout << "Exceeded buffer limit!!!" << endl;
+		exit(EOVERFLOW);
 	}
 
 	/*user input*/
 	printf("Enter data into Buffer [dim: %d x %d][type: alphanumeric][max characters: %d + 1('\\0'null char)]\n", iSize, iSize, iSize - 1);
 	insertData(achBuffer, iSize);
-	cout << endl;
+	std :: cout << endl;
 
 	/*prints the original buffer*/
 	printf("Original Data Buffer\n");
 	printData(achBuffer, iSize);
-	cout << endl;
+	std :: cout << endl;
 
 	/*sorts buffer*/
 	sortBuffer(achBuffer, iSize);
@@ -74,7 +74,7 @@ int main()
 	/*prints sorted data buffer*/
 	printf("Sorted Data Buffer\n");
 	printData(achBuffer, iSize);
-	cout << endl;
+	std :: cout << endl;
 }
 
 void insertData(char (&achBuffer)[N][N], int iSize)
@@ -84,13 +84,13 @@ void insertData(char (&achBuffer)[N][N], int iSize)
 	for(iIndex = 0; iIndex < iSize; iIndex++)
 	{
 		int iTempIndex = 0;
-		cin >> achBuffer[iIndex];
+		std :: cin >> achBuffer[iIndex];
 
 		/*validate characters count*/
 		if(strlen(achBuffer[iIndex]) > iSize - 1)
 		{
-			cout << "Oops! Buffer limit exceeded!" << endl;
-			exit(EXIT_SUCCESS);
+			std :: cout << "Oops! Buffer limit exceeded!" << endl;
+			exit(EOVERFLOW);
 		}
 
 		/*validate alphanumeric input*/
@@ -98,8 +98,8 @@ void insertData(char (&achBuffer)[N][N], int iSize)
 		{
 			if(!(isalnum(achBuffer[iIndex][iTempIndex])))
 			{
-				cout << "Invalid Character type! Not an alphanumberic character!" << endl;
-				exit(EXIT_SUCCESS);
+				std :: cout << "Invalid Character type! Not an alphanumberic character!" << endl;
+				exit(EIO);
 			}
 			iTempIndex++;
 		}
@@ -112,7 +112,7 @@ void printData(char (&achBuffer)[N][N], int iSize)
 	
 	for(iIndex = 0; iIndex < iSize; iIndex++)
 	{
-		cout << achBuffer[iIndex] << endl;
+		std :: cout << achBuffer[iIndex] << endl;
 	}
 }
 
@@ -129,6 +129,7 @@ void sortBuffer(char (&achBuffer)[N][N], int iSize)
 		{
 			if(strcmp(achBuffer[iIndexJ], achBuffer[iIndexJ + 1]) > 0)
 			{
+				/*swapping*/
 				strcpy(achTempBuffer, achBuffer[iIndexJ]);
 				strcpy(achBuffer[iIndexJ], achBuffer[iIndexJ + 1]);
 				strcpy(achBuffer[iIndexJ + 1], achTempBuffer);
