@@ -1,5 +1,5 @@
 /*
-* 2. Ask to the user to enter the number to find the factorial of the number and display the factorial result of the numbe. Note: use pass by pointer and pass by reference.
+statement: 2. Ask to the user to enter the number to find the factorial of the number and display the factorial result of the numbe. Note: use pass by pointer and pass by reference.
 */
 
 #include <iostream>
@@ -9,6 +9,8 @@ using namespace std;
 #define MIN 0
 
 /*
+	* @id 2.1
+	*
     * this methods prints the factorial of a number, but the parameter is pass by pointer to variable
     *
     * @param pNumber is a pointer to variable
@@ -18,6 +20,8 @@ using namespace std;
 unsigned long int getFactorialPtr(int *pNumber);
 
 /*
+	* @id 2.2
+	*
     * this methods returns the factorial of a number, but the parameter is pass by reference to variable
     *
     * @param rNumber is a reference to variable 

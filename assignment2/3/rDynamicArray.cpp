@@ -1,6 +1,6 @@
 /*
-3. Use InsertDataIn2DArray function which accept NxN Alphanumeric data from user. Use Sort2DArray function to sort 2D array in ascending order.
-Note: use pass by pointer and dynamic memory allocation. Use pass by reference and fixed size of 2D array.
+statement: 3. Use InsertDataIn2DArray function which accept NxN Alphanumeric data from user. Use Sort2DArray function to sort 2D array in ascending order.
+Note: (a) use pass by pointer and dynamic memory allocation. (b) Use pass by reference and fixed size of 2D array.
 */
 
 #include <cstring>
@@ -10,6 +10,8 @@ using namespace std;
 #define N 10 	// maximum capacity of buffer
 
 /*
+	* @id 3.b.1
+	*
 	* this method takes the input from the user
 	*
 	* @param achBuffer is the reference to char array
@@ -21,6 +23,8 @@ using namespace std;
 void insertData(char (&achBuffer)[N][N], int iSize);
 
 /*
+	* @id 3.b.2
+	*
 	* this mehtod prints the buffer
 	*
 	* @param achBuffer is the reference to char array
@@ -32,6 +36,8 @@ void insertData(char (&achBuffer)[N][N], int iSize);
 void printData(char (&achBuffer)[N][N], int iSize);
 
 /*
+	* @id 3.b.3
+	*
 	* this methods sorts the data buffer in ascending order
 	*
 	* @param pBufferPointer is pointer to pointer to char 

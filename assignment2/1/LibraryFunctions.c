@@ -1,6 +1,7 @@
 /*
-1. Write versions of the library functions strncpy, strncat and strncmp, which operate on at most the first n characters of their argument strings. For example, strncpy(s,t,n) copies at most n characters of t to s.
+statement: 1. Write versions of the library functions strncpy, strncat and strncmp, which operate on at most the first n characters of their argument strings. For example, strncpy(s,t,n) copies at most n characters of t to s.
 */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>	
@@ -10,6 +11,8 @@
 enum Operations {CPY = 1, CAT = 2, CMP = 3}; 
 
 /*
+	* @id 1.1
+	*
 	* copies the first n characters from source to destination
 	* 
 	* @param pDestination pointer to char 
@@ -21,6 +24,8 @@ enum Operations {CPY = 1, CAT = 2, CMP = 3};
 char * strNCpy(char *pDestination, const char *pSource, int iN);
 
 /*
+	* @id 1.2
+	*
 	* concate the first n characters from source to destination
 	* 
 	* @param pDestination pointer to char 
@@ -32,6 +37,8 @@ char * strNCpy(char *pDestination, const char *pSource, int iN);
 char * strNCat(char *pDestination, const char *pSource, int iN);
 
 /*
+	* @id 1.3
+	*
 	* compares the first n characters of source and destination
 	* 
 	* @param pDestination pointer to char 
