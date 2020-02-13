@@ -84,6 +84,7 @@ int main()
 		std :: cout << "Memory not allocated!!" << endl;
 		exit(EXIT_SUCCESS);
 	}
+	printf("Memory allocated successfully \xE2\x9C\x93 \\n\n");
 
 	/*user input*/
 	printf("Enter data into Buffer [dim: %d x %d][type: alphanumeric][max characters: %d + 1('\\0'null char)]\n", iSize, iSize, iSize - 1);
@@ -164,6 +165,7 @@ void sortBuffer(char **pBufferPointer, int iSize)
 			{
 				/*initialize pointer to array to null*/
 				pTempBuffer = new char[iSize];
+
 				memset(pTempBuffer, NULL, iSize * sizeof(pTempBuffer[0]));
 
 				/*swapping*/
