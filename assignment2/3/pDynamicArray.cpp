@@ -31,7 +31,7 @@ void insertData(char **pBufferPointer, int iSize);
 void printData(char **pBufferPointer, int iSize);
 
 /*
-	* this methods sorts the data buffer in ascending order
+	* this method sorts the data buffer in ascending order
 	*
 	* @param pBufferPointer is pointer to pointer to char 
 	*
@@ -41,14 +41,25 @@ void printData(char **pBufferPointer, int iSize);
 */
 void sortBuffer(char **pBufferPointer, int iSize);
 
+/*
+	* this method deallocates the memory
+	*	
+	* @param pBufferPointer
+	*
+	* @param iSize
+	*
+	* @return void
+*/
+void deallocateMemeory(char **pBufferPointer, int iSize);
+
 int main()
 {
 	int iIndex;
 	int iSize;
 	char **pBufferPointer = NULL;
 
-	cout << "Enter the size of bufffer: ";
-	cin >> iSize;
+	std :: cout << "Enter the size of bufffer: ";
+	std :: cin >> iSize;
 	
 	/*arr for storing rows*/
 	pBufferPointer = new char *[iSize];
@@ -62,19 +73,19 @@ int main()
 	/*validate buffer pointer*/
 	if(NULL == pBufferPointer)
 	{
-		cout << "Memory not allocated!!" << endl;
+		std :: cout << "Memory not allocated!!" << endl;
 		exit(EXIT_SUCCESS);
 	}
 
 	/*user input*/
 	printf("Enter data into Buffer [dim: %d x %d][type: alphanumeric][max characters: %d + 1('\\0'null char)]\n", iSize, iSize, iSize - 1);
 	insertData(pBufferPointer, iSize);
-	cout << endl;
+	std :: cout << endl;
 
 	/*prints the original buffer*/
 	printf("Original Data Buffer\n");
 	printData(pBufferPointer, iSize);
-	cout << endl;
+	std :: cout << endl;
 
 	/*sorts buffer*/
 	sortBuffer(pBufferPointer, iSize);
@@ -82,16 +93,9 @@ int main()
 	/*prints sorted data buffer*/
 	printf("Sorted Data Buffer\n");
 	printData(pBufferPointer, iSize);
-	cout << endl;
+	std :: cout << endl;
 
-	/*free sub buffer*/
-	for(iIndex = 0; iIndex < iSize; iIndex++)
-	{
-		delete[] pBufferPointer[iIndex];
-	}
-
-	/*free buffer pointer*/
-	delete[] pBufferPointer;
+	
 }
 
 void insertData(char **pBufferPointer, int iSize)
@@ -101,13 +105,15 @@ void insertData(char **pBufferPointer, int iSize)
 	for(iIndex = 0; iIndex < iSize; iIndex++)
 	{
 		int iTempIndex = 0;
-		cin >> pBufferPointer[iIndex];
+		std :: cin >> pBufferPointer[iIndex];
 
 		/*validate characters count*/
 		if(strlen(pBufferPointer[iIndex]) > iSize - 1)
 		{
-			cout << "Oops! Buffer limit exceeded!" << endl;
-			exit(EXIT_SUCCESS);
+			std :: cout << "Oops! Buffer limit exceeded!" << endl;
+			deallocateMemeory(pBufferPointer, iSize);
+
+			exit(EOVERFLOW);
 		}
 
 		/*validate alphanumeric input*/
@@ -115,8 +121,10 @@ void insertData(char **pBufferPointer, int iSize)
 		{
 			if(!(isalnum(pBufferPointer[iIndex][iTempIndex])))
 			{
-				cout << "Invalid Character type! Not an alphanumberic character!" << endl;
-				exit(EXIT_SUCCESS);
+				std :: cout << "Invalid Character type! Not an alphanumberic character!" << endl;
+				deallocateMemeory(pBufferPointer, iSize);
+				
+				exit(EIO);
 			}
 			iTempIndex++;
 		}
@@ -129,7 +137,7 @@ void printData(char **pBufferPointer, int iSize)
 	
 	for(iIndex = 0; iIndex < iSize; iIndex++)
 	{
-		cout << pBufferPointer[iIndex] << endl;
+		std :: cout << pBufferPointer[iIndex] << endl;
 	}
 }
 
@@ -146,11 +154,32 @@ void sortBuffer(char **pBufferPointer, int iSize)
 		{
 			if(strcmp(pBufferPointer[iIndexJ], pBufferPointer[iIndexJ + 1]) > 0)
 			{
+				/*initialize pointer to array to null*/
 				pTempBuffer = new char[iSize];
+				memset(pTempBuffer, NULL, iSize * sizeof(pTempBuffer[0]));
+
+				/*swapping*/
 				strcpy(pTempBuffer, pBufferPointer[iIndexJ]);
 				strcpy(pBufferPointer[iIndexJ], pBufferPointer[iIndexJ + 1]);
 				strcpy(pBufferPointer[iIndexJ + 1], pTempBuffer);
+				
+				/*deallocate memory*/
+				delete []pTempBuffer;
 			}
 		}
 	}
+}
+
+void deallocateMemeory(char **pBufferPointer, int iSize)
+{
+	int iIndex;
+
+	/*free sub buffer*/
+	for(iIndex = 0; iIndex < iSize; iIndex++)
+	{
+		delete[] pBufferPointer[iIndex];
+	}
+
+	/*free buffer pointer*/
+	delete[] pBufferPointer;
 }
