@@ -38,7 +38,7 @@ int main()
 	if(iNumber < MIN || iNumber > MAX)
 	{
 		std :: cout << "Input invalid! Number out of range!!" << endl;
-		exit(EXIT_SUCCESS);
+		exit(ERANGE);
 	}
 
 	/*function call by pointer to variable*/
