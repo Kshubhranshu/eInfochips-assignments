@@ -1,0 +1,18 @@
+
+/******************************************************************************/
+/*! \file   Task_6_create_thread_thread_routine_incremet_number_using_command_line.c
+
+  \brief    Write a program to create a thread, thread routine should 
+  	    increment a number in infinite loop. Write a program to create a thread, 
+  	    thread routine should increment a number in infinite loop, main() should 
+            also increment a number and print the same. 
+            For both the programs, starting number will be given as input from
+  	    command line. 
+            For both the programs, when user presses CTRL+C, the program should 
+            stop printing the number and should exit gracefully.
+	    NOTE: Try changing thread priority and observe the resulting behavior. 
+
+
+ *@{*/
+/******************************************************************************/
+

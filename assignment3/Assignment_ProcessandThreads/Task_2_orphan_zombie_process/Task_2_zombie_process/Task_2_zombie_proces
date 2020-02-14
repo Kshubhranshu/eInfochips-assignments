@@ -1,0 +1,10 @@
+/******************************************************************************/
+/*! \file     zombie_process.c
+
+  \brief    Make a program for Executing a child process from parent process. 
+            what is zombie process? How can you overcome ? Explain through
+  	    program. If Parent execute first then child, what happen? explain 
+  	    through program.
+
+ *@{*/
+/******************************************************************************/
