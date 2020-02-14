@@ -6,8 +6,9 @@ statement: 1. Write versions of the library functions strncpy, strncat and strnc
 #include <stdlib.h>
 #include <string.h>	
 #include <errno.h>
-#define N 20
+#define N 20		// max buffer size
 
+/*switch cases*/
 enum Operations {CPY = 1, CAT = 2, CMP = 3}; 
 
 /*
@@ -51,15 +52,16 @@ int strNCmp(const char *pString1, const char *pString2, int iN);
 
 int main()
 {
-	int iN; // no of bytes
+	int iN; 						// no of bytes 
 	char achSourceBuffer[N];
 	char achDestinationBuffer[N];
+	char *pConcatedBuffer;		 	// for storing concated string
 	int iChoice;
-	int iLength = 0;// for comparing two strings
-	int iResult; // stores the return value for compare function
+	int iLength = 0;				// for comparing two strings
+	int iResult; 					// stores the return value for compare function
 	
 	/*inputs*/
-	printf("Enter data in first buffer(src): ");
+	printf("Enter data in first buffer(src) [max characters: %d]: ", (N - 1));
 	scanf("%s", achSourceBuffer);
 
 	/*validate input*/
@@ -68,8 +70,9 @@ int main()
 		printf("Buffer limit exceeded!!\n");
 		exit(EOVERFLOW);
 	}
-
-	printf("Enter data in second buffer(dest): ");
+	
+	/*inputs*/
+	printf("Enter data in second buffer(dest) [max characters]: %d", (N - 1));
 	scanf("%s", achDestinationBuffer);
 
 	/*validate input*/
@@ -78,9 +81,10 @@ int main()
 		printf("Buffer limit exceeded!!\n");
 		exit(EOVERFLOW);
 	}
-
+	
+	/*menu*/
 	printf("\n");
-	printf("[1]Copy Strings\n[2]Concate Strings\n[3]Compare Strings\n[4]Print Buffers\n");
+	printf("[1]Copy Strings\n[2]Concate Strings\n[3]Compare Strings\n");
 	printf("Select a choice to perform: ");
 	scanf("%d", &iChoice);
 	printf("\n");
@@ -90,7 +94,7 @@ int main()
 	{
 		case CPY: 	
 					/*copy source string to destination string up to n chars*/
-					printf("No of characters to copy: ");
+					printf("No of characters to copy from (src) buffer: ");
 					scanf("%d", &iN);
 
 					/*validate N*/
@@ -100,16 +104,39 @@ int main()
 						break;
 					}	
 					strNCpy(achDestinationBuffer, achSourceBuffer, iN);
-					printf("Data copied successfully \xE2\x9C\x93\n");
+					printf("Data copied successfully from (src) buffer to (dest) buffer\xE2\x9C\x93\n");
 					printf("Destination buffer data: %s\n", achDestinationBuffer);
 					break;
 		case CAT:
 					/*concates two buffers upto n chars*/
+					printf("No of characters to concate from (src) buffer: ");
+					scanf("%d", &iN);
+					
+					/*validate N*/
+					if(iN > strlen(achSourceBuffer) || iN > N - 1)
+					{
+						printf("Characters limit exceeded!!\n");
+						break;
+					}
 
+					/*concate buffer memory allocation*/
+					iLength = (((iN) + strlen(achDestinationBuffer)) + 1);
+					pConcatedBuffer = (char *) calloc(iLength, sizeof(char));
+					memcpy(pConcatedBuffer, achDestinationBuffer, (strlen(achDestinationBuffer) + 1));
+					
+					/*concate*/
+					strNCat(pConcatedBuffer, achSourceBuffer, iN);
+					printf("(src) buffer concated successfull with (dest) buffer \xE2\x9C\x93\n");
+					printf("Concated buffer: %s\n", pConcatedBuffer);
+
+					/*deallocate memory*/
+					free(pConcatedBuffer);
+
+					break;
 
 		case CMP:
 					/*compares two buffers upto n chars*/
-					printf("No of characters to compare: ");
+					printf("No of characters to compare from (src) buffer: ");
 					scanf("%d", &iN);
 
 					/*check which buffer length is smaller*/
