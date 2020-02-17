@@ -1,8 +1,10 @@
-#include <stdio.h>i
+#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <errno.h>
+
 int main()
 {
 	pid_t processId = getpid();
@@ -14,7 +16,7 @@ int main()
 	if(processId < -1)
 	{
 		perror("Fork failed to execute\n");
-		exit(EXIT_FAILURE);
+		exit(ENOMEM);
 	}
 	
 	else if(0 != processId)
@@ -23,7 +25,7 @@ int main()
 		wait(NULL);
 		
 		printf("inside parent process\n");
-		sleep(5);
+		sleep(50);
 		system("ps -eo pid,comm,status,ppid\n");
 		printf("Parent process terminates\n");
 

@@ -4,7 +4,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <signal.h>
-
+#include <errno.h>
 #define N 10
 
 int main()
@@ -18,7 +18,7 @@ int main()
 	if(-1 == processId)
 	{
 		perror("fork failed\n");
-		exit(EXIT_FAILURE);
+		exit(ENOMEM);
 	}
 
 	else if(0 == processId)
