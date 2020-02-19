@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <errno.h>
 
+enum STATUS {ERR = -1, CHILD = 0};
+
 int main()
 {
 	pid_t processId;
@@ -12,13 +14,13 @@ int main()
 	
 	processId = fork();
 
-	if(-1 == processId)
+	if(ERR == processId)
 	{
 		perror("fork failed to create child\n");
 		exit(ENOMEM);
 	}
 
-	else if(0 == processId)
+	else if(CHILD == processId)
 	{
 		printf("inside child process\n");
 		sleep(500);

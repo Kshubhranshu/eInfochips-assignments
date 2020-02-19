@@ -9,7 +9,8 @@ int main()
 	printf("done\n");
 	printf("listing files in dir\n");
 	system("ls -la");
-	
+	system("gedit zombie.c");
+
 	printf("exec\n");
 	//execlp("ls", "ls", "-la", NULL);
 	execlp("ps", "ps", "ax", NULL);

@@ -92,6 +92,10 @@ int main(void)
 	if(iFirstJoinRes)
 	{
 		perror("First thread failed to join!!\n");
+
+		/*closing file*/
+		fclose(pFilePointer);
+		printf("File closed successfully \xE2\x9C\x93\n");
 		exit(EXIT_FAILURE);
 	}
 	printf("First thread joined successfully  \xE2\x9C\x93 \n");
@@ -103,6 +107,10 @@ int main(void)
 	if(iSecondJoinRes)
 	{
 		perror("Second thread failed to join!!\n");
+
+		/*closing file*/
+		fclose(pFilePointer);
+		printf("File closed successfully \xE2\x9C\x93\n");
 		exit(EXIT_FAILURE);
 	}
 	printf("Second thread joined successfully  \xE2\x9C\x93 \n");

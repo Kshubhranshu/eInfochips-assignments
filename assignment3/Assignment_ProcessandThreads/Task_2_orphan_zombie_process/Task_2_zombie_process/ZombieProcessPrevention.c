@@ -5,6 +5,8 @@
 #include <sys/wait.h>
 #include <errno.h>
 
+enum STATUS {ERR = -1, CHILD = 0};
+
 int main()
 {
 	pid_t processId = getpid();
@@ -13,13 +15,20 @@ int main()
 	/*calling child process*/
 	processId = fork();
 
-	if(processId < -1)
+	if(ERR == processId)
 	{
 		perror("Fork failed to execute\n");
 		exit(ENOMEM);
 	}
 	
-	else if(0 != processId)
+	else if(CHILD == processId)
+	{
+		printf("inside child process\n");
+		printf("child process terminates\n");
+		exit(0);
+	}
+
+	else
 	{
 		/*preventing zombie process*/
 		wait(NULL);
@@ -29,13 +38,6 @@ int main()
 		system("ps -eo pid,comm,status,ppid\n");
 		printf("Parent process terminates\n");
 
-	}
-
-	else if(0 == processId)
-	{
-		printf("inside child process\n");
-		printf("child process terminates\n");
-		exit(0);
 	}
 }
 

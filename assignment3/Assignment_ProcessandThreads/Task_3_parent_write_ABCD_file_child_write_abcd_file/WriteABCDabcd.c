@@ -5,6 +5,8 @@
 #include <sys/wait.h>
 #include <errno.h>
 
+enum STATUS {ERR = -1, CHILD = 0};
+
 /*
 	* this method shows the file usage
 	*
@@ -38,13 +40,18 @@ int main(void)
 	/*creating child process*/
 	processId = fork();
 
-	if(-1 == processId)
+	if(ERR == processId)
 	{
 		perror("Fork failed\n");
+
+		/*closing file*/
+		fclose(pFilePointer);
+		printf("File closed successfully \xE2\x9C\x93\n");
+
 		exit(ENOMEM);
 	}
 
-	else if(0 == processId)
+	else if(CHILD == processId)
 	{
 		/*writing in file*/
 		printf("Child process ready to write data\n");
@@ -61,8 +68,9 @@ int main(void)
 		printf("Parent process ready to write data\n");
 		fputs(parentData, pFilePointer);
 		printf("Data written successfully \xE2\x9C\x93\n");
+		
 	}
-
+	
 	/*closing file*/
 	fclose(pFilePointer);
 	printf("File closed successfully \xE2\x9C\x93\n");
@@ -76,5 +84,4 @@ void getFileUsage(const char *pFileName)
 	system("pwd");
 	printf("\n");
 }
-
 

@@ -33,6 +33,24 @@ int main(void)
 	int iSecondJoinRes;			// stores the return value of first thread on join
 	int iEven = 0;
 	int iOdd = 1;
+	pthread_attr_t tattr;
+	int iReturn;
+	int iNewPrio = 20;
+	struct sched_param param;
+
+	/*setting thread priority*/
+
+	/* initialized with default attributes */
+	iReturn = pthread_attr_init (&tattr);
+
+	/* safe to get existing scheduling param */
+	iReturn = pthread_attr_getschedparam (&tattr, &param);
+	
+	/* set the priority; others are unchanged */
+	param.sched_priority = iNewPrio;
+	
+	/* setting the new scheduling param */
+	iReturn = pthread_attr_setschedparam (&tattr, &param); 
 	
 	/*creating first thread*/
 	iFirstThreadRes = pthread_create(&firstThread, NULL, displayOdd, (void *)&iOdd);
@@ -46,7 +64,7 @@ int main(void)
 	printf("First thread created successfully \xE2\x9C\x93 \n");
 
 	/*creating second thread*/
-	iSecondThreadRes = pthread_create(&secondThread, NULL, displayEven, (void *)&iEven);
+	iSecondThreadRes = pthread_create(&secondThread, &tattr, displayEven, (void *)&iEven);
 
 	/*validating thread*/
 	if(iSecondThreadRes)
