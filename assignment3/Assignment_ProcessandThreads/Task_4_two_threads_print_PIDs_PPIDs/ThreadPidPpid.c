@@ -78,5 +78,8 @@ void* threadInformation(void *arg)
 	
 	printf("Parent id(ppid): %d\n", iParentId);
 	printf("Thread id(pid): %d\n", iThreadId);
+	
+	/* terminating calling thread */
+	pthread_exit(NULL);
 }
 

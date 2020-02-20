@@ -122,6 +122,9 @@ void* increment(void *arg)
 	printf("Thread created successfully \xE2\x9C\x93 \n");
 	int iNumber = ++(*((int *)arg));
 	printf("thread: number incremented: %d\n", iNumber);
+
+	/* terminating calling thread */
+	pthread_exit(NULL);
 }
 
 

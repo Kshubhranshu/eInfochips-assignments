@@ -108,6 +108,9 @@ void* displayOdd(void *arg)
 		iOdd += 2;
 		sleep(3);
 	}
+
+	/* terminating calling thread */
+	pthread_exit(NULL);
 }
 
 void* displayEven(void *arg)
@@ -121,4 +124,7 @@ void* displayEven(void *arg)
 		iEven += 2;
 		sleep(3);
 	}
+
+	/* terminating calling thread */
+	pthread_exit(NULL);
 }

@@ -140,6 +140,9 @@ void* inputFirstThreadData(void *arg)
 	printf("First thread ready to write data\n");
 	fputs(achData, pFilePointer);
 	printf("Data written successfully(first thread) \xE2\x9C\x93\n");
+
+	/* terminating calling thread */
+	pthread_exit(NULL);
 }
 
 void* inputSecondThreadData(void *arg)
@@ -152,4 +155,7 @@ void* inputSecondThreadData(void *arg)
 	printf("Second thread ready to write data\n");
 	fputs(achData, pFilePointer);
 	printf("Data written successfully(second thread) \xE2\x9C\x93\n");
+
+	/* terminating calling thread */
+	pthread_exit(NULL);
 }

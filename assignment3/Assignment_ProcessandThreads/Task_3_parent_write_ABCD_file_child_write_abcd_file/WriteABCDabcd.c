@@ -71,7 +71,7 @@ int main(void)
 		
 	}
 	
-	/*closing file*/
+		/*closing file*/
 	fclose(pFilePointer);
 	printf("File closed successfully \xE2\x9C\x93\n");
 }
