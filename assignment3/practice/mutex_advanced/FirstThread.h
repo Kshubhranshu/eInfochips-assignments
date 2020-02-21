@@ -1,3 +1,4 @@
+#include "FirstThread.c"
 /*
 	* this method increments the value of shared atomic
 	*
