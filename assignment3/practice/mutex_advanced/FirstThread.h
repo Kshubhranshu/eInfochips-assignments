@@ -6,7 +6,7 @@
 	*
 	* @return void *
 */
-void *increment(void *arg);
+void *incrementFirst(void *arg);
 
 /*
 	* this method create a new thread
@@ -15,4 +15,4 @@ void *increment(void *arg);
 	*
 	* @return void
 */
-void createFirstThread();
+void createFirstThread(int &iCount);

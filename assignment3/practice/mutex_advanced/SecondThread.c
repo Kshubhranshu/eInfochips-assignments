@@ -1,49 +1,52 @@
+#include "SecondThread.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <pthread.h>
 
-pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+extern atomic_int iCount;
 
-void *increment(void *args)
+pthread_mutex_t secondLock = PTHREAD_MUTEX_INITIALIZER;
+
+void *incrementSecond(void *args)
 {
 	/*lock accquired*/
-	pthread_mutex_lock(&lock); 
+	pthread_mutex_lock(&secondLock); 
 
-	printf("\n Second thread started...\n");
+	printf("Second thread started...\n");
 	
 	/*increments shared count variable*/
-	iCount++;
+	*((int *)iCount)++;
 
-	printf("\n Second thread finished...\n");
+	printf("Second thread finished...\n");
 	
 	/*lock released*/
-    pthread_mutex_unlock(&lock); 
+    pthread_mutex_unlock(&secondLock); 
   	
 	pthread_exit(NULL);
 }
 
-void createSecondThread()
+void createSecondThread(int &iCount)
 {
 	pthread_t secondThread;
 	int iRes;
 	
 	/*initializing mutex*/
-	iRes = pthread_mutex_init(&lock, NULL)
+	iRes = pthread_mutex_init(&secondLock, NULL);
 
 	/*validating mutex initialization*/
-	if(!(iRes))
+	if((iRes != 0))
 	{
-		perror("Mutex initialization failed\n");
+		perror("Mutex initialization failed(Second Thread)\n");
 		exit(EXIT_FAILURE);
 	}
-	printf("Mutex initialization successfully \xE2\x9C\x93 \n");
+	printf("Mutex initialization successfully(Second Thread) \xE2\x9C\x93 \n");
 	
 	/*creating first thread*/
-	iRes = pthread_create(&secondThread, NULL, &increment, NULL);
+	iRes = pthread_create(&secondThread, NULL, &incrementSecond, &iCount);
 
 	/*validating thread*/
-	if(!(iRes))
+	if(iRes != 0)
 	{
 		perror("Second thread creation failed!!\n");
 		exit(EXIT_FAILURE);
@@ -54,13 +57,13 @@ void createSecondThread()
 	iRes = pthread_join(secondThread, NULL);
 	
 	/*validate join*/
-	if(!(iRes))
+	if(iRes != 0)
 	{
 		perror("Second thread failed to join!!\n");
 		exit(EXIT_FAILURE);
 	}
 	printf("Second thread joined successfully  \xE2\x9C\x93 \n");
 
-	pthread_mutex_destroy(&lock);
+	pthread_mutex_destroy(&secondLock);
 }
 
