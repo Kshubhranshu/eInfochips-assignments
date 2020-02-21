@@ -16,7 +16,8 @@ int main(void)
 	pthread_t thread1;	
 	pthread_t thread2;
 	
-	sem_init(&sem, 0, 1);
+	sem_init(&sem, 0, 0);
+	//sem_init(&sem, 0, 1);
 
 	pthread_create(&thread1, NULL, fun1, (void *)&num);
 	pthread_create(&thread2, NULL, fun2, (void *)&num);
@@ -28,7 +29,7 @@ int main(void)
 
 void *fun1(void * arg)
 {
-	sem_wait(&sem);
+	//sem_init(&sem, 0, 0);
 	printf("num incrented by thread 1 : %d\n", ++(num));
 	sleep(3);
 	sem_post(&sem);
