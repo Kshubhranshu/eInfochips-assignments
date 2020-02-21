@@ -1,8 +1,9 @@
-#include "SecondThread.h"
+#include "headers/SecondThread.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <pthread.h>
+#include <stdatomic.h>
 
 extern atomic_int iCount;
 
@@ -16,7 +17,8 @@ void *incrementSecond(void *args)
 	printf("Second thread started...\n");
 	
 	/*increments shared count variable*/
-	*((int *)iCount)++;
+	iCount++;
+	printf("++[iCount = %d]++\n", iCount);
 
 	printf("Second thread finished...\n");
 	
@@ -26,7 +28,7 @@ void *incrementSecond(void *args)
 	pthread_exit(NULL);
 }
 
-void createSecondThread(int &iCount)
+void createSecondThread()
 {
 	pthread_t secondThread;
 	int iRes;
@@ -43,7 +45,7 @@ void createSecondThread(int &iCount)
 	printf("Mutex initialization successfully(Second Thread) \xE2\x9C\x93 \n");
 	
 	/*creating first thread*/
-	iRes = pthread_create(&secondThread, NULL, &incrementSecond, &iCount);
+	iRes = pthread_create(&secondThread, NULL, &incrementSecond, NULL);
 
 	/*validating thread*/
 	if(iRes != 0)
@@ -62,7 +64,7 @@ void createSecondThread(int &iCount)
 		perror("Second thread failed to join!!\n");
 		exit(EXIT_FAILURE);
 	}
-	printf("Second thread joined successfully  \xE2\x9C\x93 \n");
+	printf("Second thread joined successfully  \xE2\x9C\x93 \n\n");
 
 	pthread_mutex_destroy(&secondLock);
 }

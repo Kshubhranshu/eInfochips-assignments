@@ -1,8 +1,9 @@
-#include "FirstThread.h"
+#include "headers/FirstThread.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <pthread.h>
+#include <stdatomic.h>
 
 extern atomic_int iCount;
 
@@ -16,7 +17,8 @@ void *incrementFirst(void *args)
 	printf("First thread started...\n");
 	
 	/*increments shared count variable*/
-	*((int *)iCount)++;
+	iCount++;
+	printf("++[iCount = %d]++\n", iCount);
 
 	printf("First thread finished...\n");
 	
@@ -26,7 +28,7 @@ void *incrementFirst(void *args)
 	pthread_exit(NULL);
 }
 
-void createFirstThread(int &iCount)
+void createFirstThread()
 {
 	pthread_t firstThread;
 	int iRes;
@@ -43,7 +45,7 @@ void createFirstThread(int &iCount)
 	printf("Mutex initialization successfully(First Thread) \xE2\x9C\x93 \n");
 
 	/*creating first thread*/
-	iRes = pthread_create(&firstThread, NULL, &incrementFirst, &iCount);
+	iRes = pthread_create(&firstThread, NULL, &incrementFirst, NULL);
 
 	/*validating thread*/
 	if(iRes != 0)

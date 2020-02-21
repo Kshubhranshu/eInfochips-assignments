@@ -1,6 +1,5 @@
-#include "FirstThread.c"
 /*
-	* this method increments the value of shared atomic
+	* this method increments the value of shared atomic variable	
 	*
 	* @param *arg
 	*
@@ -15,4 +14,4 @@ void *incrementFirst(void *arg);
 	*
 	* @return void
 */
-void createFirstThread(int &iCount);
+void createFirstThread();
