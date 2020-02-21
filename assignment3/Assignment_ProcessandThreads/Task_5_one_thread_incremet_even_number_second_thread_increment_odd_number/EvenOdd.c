@@ -58,7 +58,7 @@ int main(void)
 	/*validating thread*/
 	if(iFirstThreadRes)
 	{
-		perror("Firtst thread creation failed!!\n");
+		perror("First thread creation failed!!\n");
 		exit(EXIT_FAILURE);
 	}
 	printf("First thread created successfully \xE2\x9C\x93 \n");
