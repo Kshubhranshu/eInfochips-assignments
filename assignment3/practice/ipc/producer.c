@@ -29,6 +29,7 @@ int main(void)
 		if(ERR == forkRes)
 		{
 			perror("Child process failed to create!!!\n");
+			close(aFilePipes)
 			exit(EXIT_FAILURE);
 		}
 		else if(SUCC == forkRes)
@@ -40,9 +41,10 @@ int main(void)
 			if(ERR == iRet)
 			{
 				perror("Process execution failed!!!\n");
+				close(aFilePipes);
 				exit(EXIT_FAILURE);
 			}
-			
+			close(aFilePipes);
 			exit(EXIT_SUCCESS);
 		}
 		else
