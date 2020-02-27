@@ -8,12 +8,12 @@
 
 extern atomic_int iCount;
 
-pthread_mutex_t firstLock = PTHREAD_MUTEX_INITIALIZER;
+extern irstLock = PTHREAD_MUTEX_INITIALIZER;
 
 void *incrementFirst(void *args)
 {
 	/*lock accquired*/
-	pthread_mutex_lock(&firstLock); 
+	pthread_mutex_lock(&lock); 
 
 	printf("First thread started...\n");
 	
@@ -24,7 +24,7 @@ void *incrementFirst(void *args)
 	printf("First thread finished...\n");
 	
 	/*lock released*/
-    pthread_mutex_unlock(&firstLock); 
+    pthread_mutex_unlock(&lock); 
   	
 	pthread_exit(NULL);
 }
@@ -35,7 +35,7 @@ void createFirstThread()
 	int iRes;
 	
 	/*initializing mutex*/
-	iRes = pthread_mutex_init(&firstLock, NULL);
+	iRes = pthread_mutex_init(&lock, NULL);
 
 	/*validating mutex initialization*/
 	if(iRes != 0)
@@ -67,6 +67,6 @@ void createFirstThread()
 	}
 	printf("First thread joined successfully  \xE2\x9C\x93 \n\n");
 
-	pthread_mutex_destroy(&firstLock);
+	pthread_mutex_destroy(&lock);
 }
 
