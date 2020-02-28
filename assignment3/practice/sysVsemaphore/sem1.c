@@ -8,6 +8,7 @@
 
 int count = 0;
 sem_t sem_id;
+pthread_t thread[THREAD_SIZ];
 
 void *threadFunction1(void *arg);
 
@@ -31,16 +32,17 @@ int sem_post(sem_t *semid);
 
 int main(void)
 {
-	pthread_t thread[THREAD_SIZ];
 
 	sem_init(&sem_id, 0, 1);
-
+	
+	for(int i = 0; i < 1000; i++)
+	{
 	pthread_create(&thread[0], NULL, &threadFunction1, NULL);
 	pthread_create(&thread[1], NULL, &threadFunction2, NULL);
 	
 	pthread_join(thread[0], NULL);
 	pthread_join(thread[1], NULL);
-
+	}
 	sem_destroy(&sem_id);
 }
 
@@ -54,6 +56,7 @@ void *threadFunction1(void *arg)
 		printf("Thread 1 locked...\n");
 		count++;
 		printf("count value(thread 1): %d\n", count);
+		pthread_exit(NULL);
 		sem_post(&sem_id);
 		printf("Thread 1 lock realeased...\n");
 	}
@@ -68,8 +71,9 @@ void *threadFunction2(void *arg)
 	if(ret == 0)
 	{
 		printf("Thread 2 locked...\n");
-		count++;
+		count--;
 		printf("count value(thread 1): %d\n", count);
+		pthread_exit(NULL);
 		sem_post(&sem_id);
 		printf("Thread 1 lock realeased...\n");
 	}
@@ -85,7 +89,6 @@ int initsem(key_t key, int nsems)
 	{
 		perror("Semaphore identifier failed!!!\n");
 		return -1;
-		exit(EXIT_FAILURE);
 	}
 	return semid;
 }
@@ -99,7 +102,6 @@ int sem_initialize(sem_t *semid, int value)
 	{
 		perror("Failed to initialize control!!!\n");
 		return ret;
-		exit(EXIT_FAILURE);
 	}
 	return ret;
 }
@@ -107,7 +109,7 @@ int sem_initialize(sem_t *semid, int value)
 int sem_init(sem_t *sem, int pshared, unsigned int value)
 {
 	int ret = -1;
-	key_t key = 5600;
+	key_t key = 6554;
 	
 	if(value > 1)
 	{
@@ -194,7 +196,8 @@ int sem_post(sem_t *semid)
 	if(ret == -1)
 	{
 		perror("Semaphore try wait failed!n\n");
-		exit(EXIT_FAILURE);
+		sem_destroy(&sem_id);
+		return ret;
 	}
 	return ret;
 }
